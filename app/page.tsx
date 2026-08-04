@@ -1,6 +1,10 @@
+import type { Metadata } from "next";
 import { GlobalHeader, MegaSteelWordmark } from "./components/global-header";
 import { ProjectShowcase } from "./components/project-showcase";
 import { ScrollAnimations } from "./components/scroll-animations";
+import { metadataFor } from "./seo";
+
+export const metadata: Metadata = metadataFor("/");
 
 const businessItems = [
   ["EPC Contractor", "Megaspace, established at the end of 2017, specializes in comprehensive contracting for superior industrial and logistics construction projects and has swiftly entered markets both at home and abroad."],
@@ -8,12 +12,6 @@ const businessItems = [
   ["Steel Structure Fabrication", "Covering 162,000 square meters (116,000 sqm built-up area), Megasteel’s Intelligent Assembly Base utilizes cutting-edge technology in prefabricated steel structures and high-performance cladding systems, achieving an annual output of 250,000 tons."],
   ["Megasky", "At Megasky, we deliver complete curtain wall integration - from design to installation - creating sustainable, energy-efficient buildings. Our expertise ensures clients receive the most practical and efficient solutions tailored to their specific needs."],
   ["Mega-BIPV", "Dedicated to innovating Mega-BIPV technology, we implement distributed photovoltaic systems in industrial and logistics facilities to produce sustainable energy. Our roof-integrated solutions provide safe, efficient power generation while meeting clients’ green energy requirements."],
-];
-
-const news = [
-  ["01", "What Does an EPC Contractor Do? A Practical Guide for Industrial Building Projects", "An EPC contractor coordinates engineering, procurement and construction under one integrated delivery responsibility."],
-  ["02", "How High-Performance Steel Buildings Improve Project Certainty", "A look at how standardized design, precise fabrication and disciplined site coordination improve quality and schedule."],
-  ["03", "What Is BIPV? Integrated Solar for Modern Industrial Buildings", "BIPV integrates photovoltaic modules into roofs and façades to combine energy generation with building performance."],
 ];
 
 function SectionTitle({ number, children, light = false }: { number: string; children: React.ReactNode; light?: boolean }) {
@@ -37,10 +35,6 @@ export default function Home() {
         <div className="wide-container hero-copy">
           <h1><span>Building the Future of Industry</span><span>&amp; Logistics with Megasteel</span></h1>
           <p>Megasteel unites strategy, engineering, digital fabrication and construction into one high-performance delivery platform for complex industrial buildings.</p>
-          <div className="hero-buttons">
-            <a className="round-button" href="#business">Our Business <i>↗</i></a>
-            <a className="round-button" href="/projects">Completed Projects <i>↗</i></a>
-          </div>
         </div>
       </section>
 
@@ -126,40 +120,26 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="news patterned" id="news">
-        <div className="wide-container section-padding news-padding">
-          <SectionTitle number="06">News &amp; Insights from Megasteel</SectionTitle>
-          <div className="news-grid">
-            {news.map(([number, title, copy], index) => (
-              <article key={number}>
-                <b>{number}</b><i className="short-line" /><h3>{title}</h3><p>{copy}</p>
-                <div className={`news-image news-image-${index + 1}`}><img src="/images/hero.png" alt={`${title} sample`} /></div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="contact-cta" id="contact">
         <div className="wide-container cta-card">
           <img src="/images/steel-laser.jpg" alt="Precision laser cutting steel components" />
           <div className="cta-overlay" />
           <div><h2>Build the future of industry with your<br />integrated partner, Megasteel.</h2><p>Turn your next facility into a clearer, faster and more dependable delivery programme.</p></div>
-          <a className="round-button light-button" href="mailto:contact@example.com">Contact Us <i>↗</i></a>
+          <a className="round-button light-button" href="/contact">Contact Us</a>
         </div>
       </section>
 
       <footer>
         <div className="wide-container footer-grid">
           <div><MegaSteelWordmark /><p>Integrated industrial construction solutions.</p></div>
-          <div><h3>Contact</h3><a href="tel:+864008888888">+86 400 888 8888</a><a href="mailto:contact@example.com">contact@example.com</a><address>Sample address: No. 88 Example Road, Shanghai, China</address></div>
+          <div><h3>Contact</h3><a href="tel:+8619553105520">0086-19553105520 (WHATSAPP/WECHAT)</a><a href="mailto:megasteelstructure@126.com">megasteelstructure@126.com</a><address>No.1068, Chongde 7th Avenue, Economic and Technological Development Zone, Dezhou City, Shandong Province</address></div>
           <div><h3>Quick Links</h3><a href="#business">Business</a><a href="#products">Products</a><a href="/projects">Projects</a><a href="#about">About Us</a></div>
-          <div><h3>Follow Us</h3><a href="#contact">LinkedIn — Sample</a><a href="#contact">WeChat — Sample</a><a href="#contact">Video Channel — Sample</a></div>
+          <div><h3>Quick Contact</h3><a href="https://wa.me/8619553105520" target="_blank" rel="noreferrer">WhatsApp</a><a href="/contact#wechat">WeChat: 19553105520</a><a href="mailto:megasteelstructure@126.com">Email</a><a href="/contact">Contact Us</a></div>
         </div>
         <div className="wide-container copyright"><span>© 2026 MEGASTEEL. Replace with verified company registration.</span><span>ICP备案号示例 · Privacy · Sitemap</span></div>
       </footer>
 
-      <a className="email-us" href="mailto:contact@example.com">Email Us</a>
+      <a className="email-us" href="mailto:megasteelstructure@126.com">Email Us</a>
     </main>
   );
 }

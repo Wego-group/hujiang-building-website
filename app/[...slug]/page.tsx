@@ -1,6 +1,10 @@
+import type { Metadata } from "next";
+import { notFound, redirect } from "next/navigation";
 import { GlobalHeader, MegaSteelWordmark } from "../components/global-header";
 import { BusinessDetailPage, businessDetailPages } from "../components/business-detail-page";
 import { ProductSystemDetailPage, productSystemPages } from "../components/product-system-detail-page";
+import { StructuredData } from "../components/structured-data";
+import { breadcrumbSchema, metadataFor, SITE_URL } from "../seo";
 
 type Active = "business" | "products" | "projects" | "about" | "blog" | "contact";
 type PageData = {
@@ -14,7 +18,6 @@ type PageData = {
 };
 
 const pages: Record<string, PageData> = {
-  products: page("PRODUCT SYSTEMS", "Engineered Components. Complete Building Performance.", "A coordinated family of structural and envelope systems gives designers more freedom while protecting cost, quality and programme.", "products"),
   "products/steel-structure-system": page("STEEL STRUCTURE SYSTEM", "Structure Optimized for Span, Load and Speed", "From lightweight portal frames to heavy-crane and multi-storey systems, each solution is modeled around the building’s real operating demands.", "products", "/images/project-01.jpg"),
   "products/building-enclosure-system": page("BUILDING ENCLOSURE SYSTEM", "Roof and Wall Systems that Work as One", "High-performance roof, wall and insulation assemblies are coordinated to control water, air, heat and long-term maintenance.", "products", "/images/project-02.jpg"),
   "projects/logistics": page("LOGISTICS PROJECTS", "Infrastructure for Faster, Smarter Distribution", "High-throughput warehouses and distribution campuses planned around circulation, automation, storage density and future expansion.", "projects"),
@@ -24,7 +27,7 @@ const pages: Record<string, PageData> = {
   about: page("ABOUT MEGASTEEL", "Engineering Confidence into Every Building", "Megasteel brings together designers, engineers, fabricators and builders around one standard: make complex projects clearer and more dependable.", "about", "/images/project-01.jpg"),
   "about/video": page("VIDEO CENTRE", "See How Ideas Become Buildings", "Explore factory processes, construction milestones, engineering workshops and the people behind each delivery.", "about", "/images/project-03.jpg"),
   "about/catalog": page("COMPANY CATALOGUE", "Capabilities, Systems and Delivery Standards", "A structured overview of Megasteel’s integrated services, product systems and quality framework, ready for your downloadable catalogue link.", "about", "/images/project-02.jpg"),
-  blog: page("INSIGHTS", "Ideas for Better Industrial Buildings", "Technical guidance, project intelligence and practical perspectives for owners, consultants and delivery teams.", "blog"),
+  blog: page("NEWS", "Megasteel News", "Megasteel updates, project stories and technical publishing will be presented through the future-ready NEWS framework.", "blog"),
   contact: page("CONTACT", "Start with the Building You Need to Achieve", "Share the location, intended use, target area and programme. Our team will turn those inputs into a clear first-step strategy.", "contact", "/images/project-02.jpg"),
 };
 
@@ -44,14 +47,62 @@ export function generateStaticParams() {
   return [...new Set([...Object.keys(pages), ...Object.keys(businessDetailPages), ...Object.keys(productSystemPages)])].map((key) => ({ slug: key.split("/") }));
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
+  const { slug } = await params;
+  return metadataFor(`/${slug.join("/")}`);
+}
+
 export default async function LayeredPage({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await params;
   const key = slug.join("/");
+  const pathname = `/${key}`;
+  if (key === "products") notFound();
+  if (key === "products/building-enclosure-system") redirect("/products/building-enclosure-system-in-architecture");
+  if (key === "about") redirect("/company-profile");
   const businessDetail = businessDetailPages[key];
-  if (businessDetail) return <BusinessDetailPage data={businessDetail} />;
+  if (businessDetail) return <>
+    <StructuredData data={[
+      breadcrumbSchema(pathname, businessDetail.title),
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: businessDetail.title,
+        description: businessDetail.summary,
+        url: `${SITE_URL}${pathname}`,
+        provider: { "@id": `${SITE_URL}/#organization` },
+        areaServed: "Worldwide",
+        serviceType: businessDetail.eyebrow,
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: businessDetail.faqs.map(([question, answer]) => ({
+          "@type": "Question",
+          name: question,
+          acceptedAnswer: { "@type": "Answer", text: answer },
+        })),
+      },
+    ]} />
+    <BusinessDetailPage data={businessDetail} />
+  </>;
   const productSystemDetail = productSystemPages[key];
-  if (productSystemDetail) return <ProductSystemDetailPage data={productSystemDetail} />;
-  const data = pages[key] ?? page("MEGASTEEL", "Integrated Building Intelligence", "A premium, coordinated approach to industrial design and construction.", "business");
+  if (productSystemDetail) return <>
+    <StructuredData data={[
+      breadcrumbSchema(pathname, productSystemDetail.title),
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: productSystemDetail.title,
+        description: productSystemDetail.summary,
+        image: `${SITE_URL}${productSystemDetail.heroImage}`,
+        brand: { "@type": "Brand", name: "Megasteel" },
+        url: `${SITE_URL}${pathname}`,
+      },
+    ]} />
+    <ProductSystemDetailPage data={productSystemDetail} />
+  </>;
+  const data = pages[key];
+  if (!data) notFound();
   const crumbs = slug.map((part, index) => ({ label: part.replaceAll("-", " "), href: `/${slug.slice(0, index + 1).join("/")}` }));
 
   return (
@@ -59,7 +110,7 @@ export default async function LayeredPage({ params }: { params: Promise<{ slug: 
       <GlobalHeader active={data.active} />
 
       <section className="layer-hero">
-        <img src={data.image} alt="" />
+        <img src={data.image} alt={`${data.title} overview`} />
         <div className="layer-hero-shade" />
         <div className="wide-container layer-hero-content">
           <p className="eyebrow">{data.eyebrow}</p>
@@ -106,13 +157,13 @@ export default async function LayeredPage({ params }: { params: Promise<{ slug: 
       <footer>
         <div className="wide-container footer-grid">
           <div><MegaSteelWordmark /><p>Integrated industrial construction solutions.</p></div>
-          <div><h3>Contact</h3><a href="tel:+864008888888">+86 400 888 8888</a><a href="mailto:contact@example.com">contact@example.com</a><address>Sample address: No. 88 Example Road, Shanghai, China</address></div>
+          <div><h3>Contact</h3><a href="tel:+8619553105520">0086-19553105520 (WHATSAPP/WECHAT)</a><a href="mailto:megasteelstructure@126.com">megasteelstructure@126.com</a><address>No.1068, Chongde 7th Avenue, Economic and Technological Development Zone, Dezhou City, Shandong Province</address></div>
           <div><h3>Business</h3><a href="/business/epc-contractor">EPC Contractor</a><a href="/business/pre-engineered-metal-building">Metal Buildings</a><a href="/business/steel-structure-fabrication">Steel Fabrication</a><a href="/business/bipv">BIPV</a></div>
-          <div><h3>Quick Links</h3><a href="/products">Products</a><a href="/projects">Projects</a><a href="/about">About Us</a><a href="/blog">Insights</a></div>
+          <div><h3>Quick Links</h3><a href="/products/steel-structure-system">Products</a><a href="/projects">Projects</a><a href="/company-profile">About Us</a><a href="/blog">NEWS</a></div>
         </div>
         <div className="wide-container copyright"><span>© 2026 MEGASTEEL. Sample company information.</span><span>Replace with verified registration and policy links.</span></div>
       </footer>
-      <a className="email-us" href="mailto:contact@example.com">Email Us</a>
+      <a className="email-us" href="mailto:megasteelstructure@126.com">Email Us</a>
     </main>
   );
 }

@@ -288,20 +288,20 @@ function PembFaqSection() {
   );
 }
 
-export function EpcContactSection() {
+export function EpcContactSection({ plain = false }: { plain?: boolean } = {}) {
   return (
-    <section className="epc-contact-panel" id="contact">
-      <img className="epc-contact-background" src="/images/epc-collaboration.jpg" alt="Project team collaborating around a table" />
-      <div className="epc-contact-shade" />
+    <section className={`epc-contact-panel ${plain ? "epc-contact-panel-plain" : ""}`} id="contact">
+      {!plain && <img className="epc-contact-background" src="/images/epc-collaboration.jpg" alt="Project team collaborating around a table" />}
+      {!plain && <div className="epc-contact-shade" />}
       <div className="wide-container epc-contact-grid">
         <div className="epc-contact-copy">
           <p className="eyebrow">START A CONVERSATION</p>
           <h2>Ready to elevate your next building project?</h2>
           <p>Tell us what you plan to build. Our team will help you organize the next steps for engineering, procurement and construction.</p>
           <div className="epc-contact-information">
-            <div><span aria-hidden="true">☎</span><p><small>TEL</small><a href="tel:+864008888888">+86 400 888 8888</a></p></div>
-            <div><span aria-hidden="true">✉</span><p><small>EMAIL</small><a href="mailto:contact@example.com">contact@example.com</a></p></div>
-            <div><span aria-hidden="true">⌖</span><p><small>ADDRESS</small><em>Sample address: No. 88 Example Road, Shanghai, China</em></p></div>
+            <div><span aria-hidden="true">☎</span><p><small>TEL</small><a href="tel:+8619553105520">0086-19553105520 (WHATSAPP/WECHAT)</a></p></div>
+            <div><span aria-hidden="true">✉</span><p><small>EMAIL</small><a href="mailto:megasteelstructure@126.com">megasteelstructure@126.com</a></p></div>
+            <div><span aria-hidden="true">⌖</span><p><small>ADDRESS</small><em>No.1068, Chongde 7th Avenue, Economic and Technological Development Zone, Dezhou City, Shandong Province</em></p></div>
           </div>
         </div>
         <form className="epc-contact-form">
@@ -622,7 +622,7 @@ export function BusinessDetailPage({ data }: { data: BusinessPage }) {
       <ScrollAnimations />
 
       <section className={`business-detail-hero ${data.heroParagraphs ? "detailed-hero" : ""}`}>
-        <img src={data.image} alt="" />
+        <img src={data.image} alt={`${data.title} industrial project`} />
         <div className="business-detail-hero-shade" />
         <div className="wide-container business-detail-hero-copy">
           <p className="eyebrow">{data.eyebrow}</p>
@@ -681,13 +681,13 @@ export function BusinessDetailPage({ data }: { data: BusinessPage }) {
       <footer>
         <div className="wide-container footer-grid">
           <div><MegaSteelWordmark /><p>Integrated industrial construction solutions.</p></div>
-          <div><h3>Contact</h3><a href="tel:+864008888888">+86 400 888 8888</a><a href="mailto:contact@example.com">contact@example.com</a><address>Sample address: No. 88 Example Road, Shanghai, China</address></div>
+          <div><h3>Contact</h3><a href="tel:+8619553105520">0086-19553105520 (WHATSAPP/WECHAT)</a><a href="mailto:megasteelstructure@126.com">megasteelstructure@126.com</a><address>No.1068, Chongde 7th Avenue, Economic and Technological Development Zone, Dezhou City, Shandong Province</address></div>
           <div><h3>Business</h3><a href="/business/epc-contractor">EPC Contractor</a><a href="/business/pre-engineered-metal-building">Metal Buildings</a><a href="/business/steel-structure-fabrication">Steel Fabrication</a><a href="/business/bipv">Mega-BIPV</a></div>
-          <div><h3>Quick Links</h3><a href="/products">Products</a><a href="/projects">Projects</a><a href="/about">About Us</a><a href="/contact">Contact</a></div>
+          <div><h3>Quick Links</h3><a href="/products/steel-structure-system">Products</a><a href="/projects">Projects</a><a href="/company-profile">About Us</a><a href="/contact">Contact</a></div>
         </div>
         <div className="wide-container copyright"><span>© 2026 MEGASTEEL. Sample company information.</span><span>Replace with verified registration and policy links.</span></div>
       </footer>
-      <a className="email-us" href="mailto:contact@example.com">Email Us</a>
+      <a className="email-us" href="mailto:megasteelstructure@126.com">Email Us</a>
     </main>
   );
 }

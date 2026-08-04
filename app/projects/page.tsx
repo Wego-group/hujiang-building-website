@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import { GlobalHeader, MegaSteelWordmark } from "../components/global-header";
+import { metadataFor } from "../seo";
+
+export const metadata: Metadata = {
+  ...metadataFor("/projects"),
+  robots: { index: false, follow: false },
+};
 
 const projectCards = [
   { title: "Yangtze Delta Smart Logistics Hub", place: "Shanghai, China", area: "128,000 m²", image: "/images/hero.png", type: "Logistics" },
@@ -19,8 +26,8 @@ function SiteHeader() {
         <div className="header-green">
           <div className="wide-container header-info">
             <div className="info-links">
-              <a href="tel:+864008888888">☎ +86 400 888 8888</a>
-              <a href="mailto:contact@example.com">✉ contact@example.com</a>
+              <a href="tel:+8619553105520">☎ 0086-19553105520 (WHATSAPP/WECHAT)</a>
+              <a href="mailto:megasteelstructure@126.com">✉ megasteelstructure@126.com</a>
               <span className="info-line" />
               <a href="#contact">English⌄</a>
             </div>
@@ -126,20 +133,20 @@ export default function ProjectsPage() {
           <img src="/images/project-01.jpg" alt="" />
           <div className="cta-overlay" />
           <div><h2>Ready to elevate your next building project?</h2><p>Share the project location, intended use and planned area to receive a tailored solution.</p></div>
-          <a className="round-button light-button" href="mailto:contact@example.com">Contact Us <i>↗</i></a>
+          <a className="round-button light-button" href="mailto:megasteelstructure@126.com">Contact Us <i>↗</i></a>
         </div>
       </section>
 
       <footer>
         <div className="wide-container footer-grid">
           <div><MegaSteelWordmark /><p>Integrated industrial construction solutions.</p></div>
-          <div><h3>Contact</h3><a href="tel:+864008888888">+86 400 888 8888</a><a href="mailto:contact@example.com">contact@example.com</a><address>Sample address: No. 88 Example Road, Shanghai, China</address></div>
+          <div><h3>Contact</h3><a href="tel:+8619553105520">0086-19553105520 (WHATSAPP/WECHAT)</a><a href="mailto:megasteelstructure@126.com">megasteelstructure@126.com</a><address>No.1068, Chongde 7th Avenue, Economic and Technological Development Zone, Dezhou City, Shandong Province</address></div>
           <div><h3>Business</h3><a href="/#business">EPC Contractor</a><a href="/#business">Metal Buildings</a><a href="/#business">Steel Fabrication</a><a href="/#business">Mega-BIPV</a></div>
           <div><h3>Quick Links</h3><a href="/">Home</a><a href="/#products">Products</a><a href="/projects">Projects</a><a href="/#about">About Us</a></div>
         </div>
         <div className="wide-container copyright"><span>© 2026 MEGASTEEL. Sample company information.</span><span>Map base: Wikimedia Commons · Replace with verified company data.</span></div>
       </footer>
-      <a className="email-us" href="mailto:contact@example.com">Email Us</a>
+      <a className="email-us" href="mailto:megasteelstructure@126.com">Email Us</a>
     </main>
   );
 }
