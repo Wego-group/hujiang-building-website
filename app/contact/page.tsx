@@ -26,6 +26,20 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <section className="wechat-qr-section" id="wechat-qr">
+        <div className="wide-container">
+          <div className="wechat-qr-card">
+            <div className="wechat-qr-copy">
+              <p className="eyebrow">WECHAT CONTACT</p>
+              <h2>Add Megasteel on WeChat</h2>
+              <p>Scan the QR code below to add the Megasteel team directly on WeChat for project communication.</p>
+              <p><strong>WeChat / WhatsApp:</strong> 19553105520</p>
+            </div>
+            <img src="/images/wechat-qr.png" alt="Megasteel WeChat QR code" />
+          </div>
+        </div>
+      </section>
+
       <div id="wechat"><EpcContactSection plain /></div>
 
       <footer>
