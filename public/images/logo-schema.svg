@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Megasteel logo</title>
+  <desc id="desc">Megasteel wordmark for structured data.</desc>
+  <rect width="512" height="512" rx="84" fill="#ffffff"/>
+  <rect x="56" y="126" width="146" height="42" rx="12" fill="#2d2d2d"/>
+  <rect x="56" y="188" width="118" height="42" rx="12" fill="#b8d600"/>
+  <text x="56" y="318" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" fill="#2d2d2d">MEGA</text>
+  <text x="274" y="318" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" fill="#b8d600">STEEL</text>
+</svg>

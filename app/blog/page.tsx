@@ -2,11 +2,8 @@ import type { Metadata } from "next";
 import { EpcContactSection } from "../components/business-detail-page";
 import { GlobalHeader, MegaSteelWordmark } from "../components/global-header";
 import { ScrollAnimations } from "../components/scroll-animations";
-import { metadataFor } from "../seo";
+import { metadataFor, breadcrumbSchema, SITE_URL } from "../seo";
 import { StructuredData } from "../components/structured-data";
-import { breadcrumbSchema, SITE_URL } from "../seo";
-
-export const metadata: Metadata = metadataFor("/blog");
 
 type NewsItem = {
   number: string;
@@ -18,6 +15,15 @@ type NewsItem = {
 };
 
 const newsItems: NewsItem[] = [];
+const blogBaseMetadata = metadataFor("/blog");
+
+export const metadata: Metadata = {
+  ...blogBaseMetadata,
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 const featuredStory = newsItems[0];
 const archiveItems = newsItems.slice(1);
@@ -27,7 +33,13 @@ export default function BlogPage() {
     <main className="news-page-shell">
       <StructuredData data={[
         breadcrumbSchema("/blog", "NEWS"),
-        { "@context": "https://schema.org", "@type": "CollectionPage", name: "Megasteel News", url: `${SITE_URL}/blog`, description: "Megasteel company news, project updates and industrial construction insights." },
+        {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Megasteel News",
+          url: `${SITE_URL}/blog`,
+          description: "Megasteel company news, project updates and industrial construction insights.",
+        },
       ]} />
       <GlobalHeader active="blog" />
       <ScrollAnimations />
@@ -118,8 +130,8 @@ export default function BlogPage() {
           </div>
         </div>
         <div className="wide-container copyright">
-          <span>© 2026 MEGASTEEL. Sample company information.</span>
-          <span>Replace with verified registration and policy links.</span>
+          <span>© 2026 MEGASTEEL. All rights reserved.</span>
+          <span>www.chinamegasteel.com</span>
         </div>
       </footer>
 

@@ -54,7 +54,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             "@id": `${SITE_URL}/#organization`,
             name: SITE_NAME,
             url: SITE_URL,
-            logo: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
+            logo: `${SITE_URL}/images/logo-schema.svg`,
             description: "Integrated engineering, fabrication and construction solutions for industrial steel buildings.",
             foundingDate: "2007",
             address: {
@@ -69,7 +69,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               telephone: "+86-19553105520",
               email: "megasteelstructure@126.com",
               contactType: "sales",
-              availableLanguage: ["English", "Chinese", "Spanish", "French", "German", "Portuguese", "Russian", "Arabic", "Japanese", "Korean", "Italian", "Turkish"],
+              availableLanguage: ["English", "Chinese"],
             },
           },
           {

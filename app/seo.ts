@@ -33,12 +33,12 @@ export const routeSeo: Record<string, SeoEntry> = {
   },
   "/business/building-envelope": {
     title: "Curtain Wall & Building Envelope Systems | Megasteel",
-    description: "Integrated curtain wall and building envelope design, engineering, sample approval, fabrication and site installation for durable, efficient façades.",
+    description: "Integrated curtain wall and building envelope design, engineering, sample approval, fabrication and site installation for durable, efficient facades.",
     image: "/images/curtain-wall-hero.png",
   },
   "/business/bipv": {
     title: "BIPV Roofing & Building Integrated Photovoltaics | Megasteel",
-    description: "BIPV roof, façade and curtain wall solutions coordinated with steel structures, waterproofing, electrical systems and industrial construction.",
+    description: "BIPV roof, facade and curtain wall solutions coordinated with steel structures, waterproofing, electrical systems and industrial construction.",
     image: "/images/bipv-hero-factory.png",
   },
   "/products/steel-structure-system": {
@@ -86,7 +86,13 @@ export function metadataFor(pathname: string): Metadata {
   return {
     title: { absolute: seo.title },
     description: seo.description,
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      languages: {
+        en: canonical,
+        "x-default": canonical,
+      },
+    },
     openGraph: {
       type: "website",
       siteName: SITE_NAME,

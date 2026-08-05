@@ -236,15 +236,15 @@ export default function CompanyProfilePage() {
           </div>
           <div>
             <h3>Quick Links</h3>
-            <a href="/products">Products</a>
+            <a href="/products/steel-structure-system">Products</a>
             <a href="/company-profile">About Us</a>
             <a href="/blog">NEWS</a>
             <a href="/contact">Contact</a>
           </div>
         </div>
         <div className="wide-container copyright">
-          <span>©2026 MEGASTEEL. Sample company information.</span>
-          <span>Replace with verified registration and policy links.</span>
+          <span>漏 2026 MEGASTEEL. All rights reserved.</span>
+          <span>www.chinamegasteel.com</span>
         </div>
       </footer>
 

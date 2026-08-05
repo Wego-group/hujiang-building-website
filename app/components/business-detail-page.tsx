@@ -1,4 +1,4 @@
-import { GlobalHeader, MegaSteelWordmark } from "./global-header";
+﻿import { GlobalHeader, MegaSteelWordmark } from "./global-header";
 import { CurtainWallStrengthCarousel } from "./curtain-wall-strength-carousel";
 import { PembStrengthCarousel } from "./pemb-strength-carousel";
 import { ScrollAnimations } from "./scroll-animations";
@@ -82,14 +82,14 @@ export const businessDetailPages: Record<string, BusinessPage> = {
     processTitle: "A Faster Route from Design to Assembly",
     processIntro: "PEMB systems are engineered as coordinated kits of parts, reducing site complexity and improving predictability.",
     process: [["Design brief", "Define span, clear height, loads, crane requirements and operating use."], ["System engineering", "Optimize frames, bracing, purlins, connections and envelope interfaces."], ["Digital detailing", "Issue coordinated fabrication information and component schedules."], ["Factory production", "Cut, drill, weld, coat, identify and package every member."], ["Site assembly", "Sequence deliveries and erection for safe, efficient installation."]],
-    faqs: [["What is a pre-engineered metal building?", "It is a steel building whose primary frames, secondary members and connections are engineered and fabricated as one coordinated system."], ["How does PEMB differ from conventional construction?", "More work is standardized and completed in the factory, which can reduce site labour and shorten erection time."], ["Can the building be customized?", "Yes. Span, height, façade, roof, loading, crane systems and internal functions can be adapted to the project."], ["What information is needed for a quotation?", "Location, dimensions, use, design loads, standards, envelope requirements and target schedule provide a strong starting point."]],
+    faqs: [["What is a pre-engineered metal building?", "It is a steel building whose primary frames, secondary members and connections are engineered and fabricated as one coordinated system."], ["How does PEMB differ from conventional construction?", "More work is standardized and completed in the factory, which can reduce site labour and shorten erection time."], ["Can the building be customized?", "Yes. Span, height, facade, roof, loading, crane systems and internal functions can be adapted to the project."], ["What information is needed for a quotation?", "Location, dimensions, use, design loads, standards, envelope requirements and target schedule provide a strong starting point."]],
   },
   "business/steel-structure-fabrication": {
     eyebrow: "STEEL STRUCTURE FABRICATION",
     title: "Steel Structure Fabrication Company for Industrial Buildings",
     summary: "Megasteel provides intelligent, high-capacity structural steel fabrication for industrial buildings and overseas construction projects.",
     heroParagraphs: [
-      "Megasteel Intelligent Assembly Base covers 162,000 m², including 116,000 m² of built area, and combines intelligent steel assembly with high-performance cladding technologies to achieve an annual capacity of 250,000 tons. German automated fabrication systems, advanced production software and low-carbon facilities support accurate, traceable manufacturing, while cooperation with Xi’an University of Architecture and Technology strengthens research and development in prefabricated steel construction.",
+      "Megasteel Intelligent Assembly Base covers 162,000 m² including 116,000 m²of built area, and combines intelligent steel assembly with high-performance cladding technologies to achieve an annual capacity of 250,000 tons. German automated fabrication systems, advanced production software and low-carbon facilities support accurate, traceable manufacturing, while cooperation with Xi'an University of Architecture and Technology strengthens research and development in prefabricated steel construction.",
       "As a Chinese structural steel fabricator serving overseas industrial projects, Megasteel supports contractors, developers and building owners with drawing review, material preparation, cutting, welding, drilling, surface treatment, inspection, component marking and modular packaging. The service is designed for warehouses, factories, logistics centers, pre-engineered metal buildings and industrial steel structures that require accurate components and efficient site assembly.",
     ],
     image: "/images/fabrication-hero-factory.png",
@@ -141,7 +141,7 @@ export const businessDetailPages: Record<string, BusinessPage> = {
     testimonials: [],
     processTitle: "Curtain Wall Integration from Concept to Handover",
     processIntro: "A coordinated envelope process protects design intent while resolving movement, drainage, airtightness and installation interfaces.",
-    process: [["System design", "Select the façade type, grid, materials and performance targets."], ["Detailed engineering", "Resolve anchors, panels, interfaces, tolerances and movement."], ["Design review", "Coordinate structure, waterproofing, fire, thermal and maintenance requirements."], ["Mock-up approval", "Review samples, finishes and performance tests before production."], ["Installation and handover", "Manage site quality, inspection, sealing, cleaning and final records."]],
+    process: [["System design", "Select the facade type, grid, materials and performance targets."], ["Detailed engineering", "Resolve anchors, panels, interfaces, tolerances and movement."], ["Design review", "Coordinate structure, waterproofing, fire, thermal and maintenance requirements."], ["Mock-up approval", "Review samples, finishes and performance tests before production."], ["Installation and handover", "Manage site quality, inspection, sealing, cleaning and final records."]],
     faqs: [],
   },
   "business/bipv": {
@@ -160,11 +160,11 @@ export const businessDetailPages: Record<string, BusinessPage> = {
     strengths: ["Integration of BIPV System", "Integrated Construction in BIPV Solar Modules", "Completed Synchronously with the Photovoltaic Building"],
     casesTitle: "Mega-BIPV Project Case",
     cases: [["GLP Anhui Intelligent Storage Project", "Hefei, Anhui", "76,323 m²", "/images/bipv-project-01.png"], ["Suzhou Adidas Project - X", "Suzhou, Jiangsu", "40,000 m²", "/images/bipv-project-02.png"]],
-    testimonials: [["MegaSteel’s BIPV system gave us a hybrid solution—structural steel with seamlessly integrated photovoltaics. The result is a self-supporting solar facade that meets both load-bearing and energy-generation demands.", "Industrial Park Developer"], ["Megasteel delivered a BIPV system engineered for heavy snow loads and sub-zero temperatures. Its steel-framed solar panels provided high structural rigidity while energy yields exceeded projections.", "Urban High-Rise Contractor"]],
+    testimonials: [["Megasteel's BIPV system gave us a hybrid solution—structural steel with seamlessly integrated photovoltaics. The result is a self-supporting solar facade that meets both load-bearing and energy-generation demands.", "Industrial Park Developer"], ["Megasteel delivered a BIPV system engineered for heavy snow loads and sub-zero temperatures. Its steel-framed solar panels provided high structural rigidity while energy yields exceeded projections.", "Urban High-Rise Contractor"]],
     processTitle: "BIPV Coordinated as Part of the Building",
     processIntro: "The photovoltaic system is designed with the structure and envelope instead of being treated as a late rooftop addition.",
     process: [["Structural coordination", "Check module loads with purlins, bracing, span, wind and snow actions."], ["Envelope integration", "Coordinate modules with waterproofing, insulation, drainage and roof details."], ["Electrical planning", "Plan strings, inverters, cable routes, safety zones and grid connection."], ["Synchronized construction", "Sequence steel erection, roof work and module installation as one plan."], ["Operations planning", "Provide access, walkways, inspection points and maintainable interfaces."]],
-    faqs: [["What is BIPV?", "Building-integrated photovoltaics replace or become part of roof and façade materials while generating electricity."], ["How is BIPV different from rooftop solar?", "BIPV is designed as part of the envelope, while conventional panels are generally mounted above a completed roof."], ["Can BIPV be used on industrial warehouses?", "Yes. Large roofs can support integrated generation when structure, waterproofing, fire safety and maintenance are coordinated."], ["What should be confirmed first?", "Building location, energy target, roof geometry, design loads, grid conditions, waterproofing strategy and operating requirements."]],
+    faqs: [["What is BIPV?", "Building-integrated photovoltaics replace or become part of roof and facade materials while generating electricity."], ["How is BIPV different from rooftop solar?", "BIPV is designed as part of the envelope, while conventional panels are generally mounted above a completed roof."], ["Can BIPV be used on industrial warehouses?", "Yes. Large roofs can support integrated generation when structure, waterproofing, fire safety and maintenance are coordinated."], ["What should be confirmed first?", "Building location, energy target, roof geometry, design loads, grid conditions, waterproofing strategy and operating requirements."]],
   },
 };
 
@@ -212,7 +212,7 @@ function EpcSeoSection() {
               <li><strong>Steel Structure System</strong><span>Coordinated structural solutions for industrial and commercial buildings.</span></li>
               <li><strong>Steel Structure Fabrication</strong><span>Factory-controlled production, treatment, packaging and delivery.</span></li>
               <li><strong>Pre-Engineered Metal Buildings</strong><span>Efficient systems for warehouses, factories and logistics facilities.</span></li>
-              <li><strong>Megasky Curtain Wall</strong><span>Façade and envelope coordination for modern buildings.</span></li>
+              <li><strong>Megasky Curtain Wall</strong><span>Facade and envelope coordination for modern buildings.</span></li>
               <li><strong>Mega-BIPV</strong><span>Integrated photovoltaic systems for low-carbon industrial facilities.</span></li>
             </ul>
           </section>
@@ -237,7 +237,7 @@ function EpcFaqSection() {
     ["What is a general building contractor?", "A general building contractor oversees a construction project from planning through completion. The contractor coordinates people, materials, schedules, budgets and quality requirements so the work is delivered safely and to the agreed standards."],
     ["What is a General Building Contractor A?", "A Class A general building contractor is qualified to undertake broad building work and coordinate daily site operations, specialist trades, suppliers and communication between the client, consultants and construction team."],
     ["What are the key responsibilities of a general building contractor?", "Core responsibilities include project planning, trade and supplier coordination, permits and compliance, cost and schedule control, quality assurance, site safety, issue resolution and progress reporting."],
-    ["What does a Class A contractor’s license allow in terms of project scope?", "A Class A license generally supports a wide range of residential, commercial, industrial and public building projects. The exact permitted scope remains subject to the regulations in the project location."],
+    ["What does a Class A contractor license allow in terms of project scope?", "A Class A license generally supports a wide range of residential, commercial, industrial and public building projects. The exact permitted scope remains subject to the regulations in the project location."],
     ["Can EPC services include steel structure fabrication?", "Yes. EPC delivery can integrate steel processing, fabrication, surface treatment, quality inspection, packaging, transport planning and erection coordination within the overall project programme."],
     ["What is included in EPC contractor services?", "Typical EPC services cover engineering coordination, procurement, steel fabrication, building-envelope coordination, construction organization, project management, quality and safety control, completion records and handover support."],
   ];
@@ -299,9 +299,9 @@ export function EpcContactSection({ plain = false }: { plain?: boolean } = {}) {
           <h2>Ready to elevate your next building project?</h2>
           <p>Tell us what you plan to build. Our team will help you organize the next steps for engineering, procurement and construction.</p>
           <div className="epc-contact-information">
-            <div><span aria-hidden="true">☎</span><p><small>TEL</small><a href="tel:+8619553105520">0086-19553105520 (WHATSAPP/WECHAT)</a></p></div>
-            <div><span aria-hidden="true">✉</span><p><small>EMAIL</small><a href="mailto:megasteelstructure@126.com">megasteelstructure@126.com</a></p></div>
-            <div><span aria-hidden="true">⌖</span><p><small>ADDRESS</small><em>No.1068, Chongde 7th Avenue, Economic and Technological Development Zone, Dezhou City, Shandong Province</em></p></div>
+            <div><span aria-hidden="true">→</span><p><small>TEL</small><a href="tel:+8619553105520">0086-19553105520 (WHATSAPP/WECHAT)</a></p></div>
+            <div><span aria-hidden="true">→</span><p><small>EMAIL</small><a href="mailto:megasteelstructure@126.com">megasteelstructure@126.com</a></p></div>
+            <div><span aria-hidden="true">→</span><p><small>ADDRESS</small><em>No.1068, Chongde 7th Avenue, Economic and Technological Development Zone, Dezhou City, Shandong Province</em></p></div>
           </div>
         </div>
         <form className="epc-contact-form">
@@ -321,7 +321,7 @@ function PembTestimonialsSection() {
   const testimonials: [string, string][] = [
     ["Megasteel delivered our industrial warehouse ahead of schedule without compromising quality. The pre-engineered metal building system reduced construction time by 30% compared with traditional methods. We highly recommend their turnkey solution.", "Logistics Company"],
     ["We chose Megasteel for our factory expansion, and the PEMB structure exceeded expectations. The corrosion-resistant materials and optimized design saved both construction time and long-term maintenance costs.", "Manufacturing Firm"],
-    ["From initial CAD drawings to final assembly, Megasteel’s team provided seamless coordination. Their BIM-integrated approach minimized errors and ensured a smooth construction process for our complex project.", "Industrial Park Developer"],
+    ["From initial CAD drawings to final assembly, Megasteel's team provided seamless coordination. Their BIM-integrated approach minimized errors and ensured a smooth construction process for our complex project.", "Industrial Park Developer"],
   ];
 
   return (
@@ -366,7 +366,7 @@ function PembSeoSection() {
           <section className="pemb-seo-intro">
             <p className="eyebrow">WHAT DOES PEMB MEAN IN CONSTRUCTION?</p>
             <h3>Engineered off-site for efficient on-site assembly</h3>
-            <p>A pre-engineered metal building is designed, detailed and manufactured as one coordinated steel building system. Primary framing, secondary members, roof and wall components are prepared off-site to meet the project’s loads, dimensions and operating requirements.</p>
+            <p>A pre-engineered metal building is designed, detailed and manufactured as one coordinated steel building system. Primary framing, secondary members, roof and wall components are prepared off-site to meet the project's loads, dimensions and operating requirements.</p>
             <p>This integrated approach can shorten delivery, reduce material waste and improve cost control while providing durable, adaptable space for warehouses, factories, logistics parks and commercial buildings.</p>
           </section>
 
@@ -399,7 +399,7 @@ function PembSeoSection() {
 
 function SteelFabricationTestimonialsSection() {
   const testimonials: [string, string][] = [
-    ["Megasteel’s precision cutting, advanced equipment and modular packaging made our project installation fast and cost-effective. Quality and efficiency were excellent.", "Southeast Asian Logistics Project"],
+    ["Megasteel's precision cutting, advanced equipment and modular packaging made our project installation fast and cost-effective. Quality and efficiency were excellent.", "Southeast Asian Logistics Project"],
     ["Their automated production lines ensured accurate assembly, while shot blasting and painting met international standards. Real-time production updates gave us confidence throughout delivery.", "Chinese High-Tech Industrial Building"],
     ["Faced with a tight schedule, Megasteel optimized materials, controlled costs and delivered high-quality structures. Their after-sales support completed a reliable service experience.", "Commercial Project Developer"],
   ];
@@ -453,7 +453,7 @@ function SteelFabricationSeoSection() {
             <p className="eyebrow">FROM DRAWING REVIEW TO EXPORT PACKAGING</p>
             <h3>A controlled workflow for accurate steel components</h3>
             <p>A reliable Chinese structural steel fabricator should connect engineering review, production planning, quality inspection and packaging within one traceable workflow.</p>
-            <p>Megasteel’s process is designed to reduce production uncertainty, improve component accuracy and prepare steel members for efficient delivery and site erection.</p>
+            <p>Megasteel's process is designed to reduce production uncertainty, improve component accuracy and prepare steel members for efficient delivery and site erection.</p>
           </section>
 
           <section className="fabrication-process-block">
@@ -467,7 +467,7 @@ function SteelFabricationSeoSection() {
           </section>
 
           <section className="fabrication-checklist-block">
-            <div className="pemb-subheading"><small>BUYER CHECKLIST</small><h3>How to Choose a Chinese Structural Steel Fabricator</h3><p>Compare capability, control and delivery readiness—not unit price alone.</p></div>
+            <div className="pemb-subheading"><small>BUYER CHECKLIST</small><h3>How to Choose a Chinese Structural Steel Fabricator</h3><p>Compare capability, control and delivery readiness rather than unit price alone.</p></div>
             <div className="pemb-table-wrap"><table className="pemb-comparison-table fabrication-checklist-table"><thead><tr><th>Evaluation Factor</th><th>What Buyers Should Check</th><th>Why It Matters</th></tr></thead><tbody>{checklist.map(([factor, check, value]) => <tr key={factor}><th>{factor}</th><td>{check}</td><td>{value}</td></tr>)}</tbody></table></div>
           </section>
 
@@ -503,9 +503,9 @@ function SteelFabricationFaqSection() {
 
 function CurtainWallTestimonialsSection() {
   const testimonials: [string, string][] = [
-    ["Megasteel’s curtain wall system elevated our high-rise’s design while ensuring unmatched structural strength. The sleek, thermally broken profiles improved energy efficiency by 30%, and the installation was flawlessly executed. A partner we trust for iconic facades.", "Commercial Developer"],
-    ["After three years in harsh coastal conditions, Megasteel’s curtain wall shows zero corrosion or leakage. Their high-performance seals and marine-grade aluminum proved why they’re the gold standard for durability.", "Architecture Firm"],
-    ["We challenged Megasteel with a double-skin, geometrically complex façade. They delivered innovative solar-responsive louvers within budget, proving their expertise in blending aesthetics with functionality.", "Industrial Developer"],
+    ["Megasteel's curtain wall system elevated our high-rise design while ensuring unmatched structural strength. The sleek, thermally broken profiles improved energy efficiency by 30%, and the installation was flawlessly executed. A partner we trust for iconic facades.", "Commercial Developer"],
+    ["After three years in harsh coastal conditions, Megasteel's curtain wall shows zero corrosion or leakage. Their high-performance seals and marine-grade aluminum proved why they remain the gold standard for durability.", "Architecture Firm"],
+    ["We challenged Megasteel with a double-skin, geometrically complex facade. They delivered innovative solar-responsive louvers within budget, proving their expertise in blending aesthetics with functionality.", "Industrial Developer"],
   ];
 
   return (
@@ -525,7 +525,7 @@ function CurtainWallFaqSection() {
     ["What are the different types of curtain walls used in construction?", "Curtain walls are commonly made with glass, aluminum and other durable materials. The main systems include unitized curtain walls, structural glazing and traditional curtain walls. The right material and system depend on the required appearance, environmental performance and structural conditions."],
     ["What are the primary requirements for a curtain wall design?", "A reliable curtain wall design must address structural integrity, building movement, weather resistance, energy efficiency and acoustic control. These requirements should be coordinated from system selection through detailing, testing and installation."],
     ["How does a window wall differ from a curtain wall system?", "A window wall normally spans one floor and is supported between the floor slabs above and below. A curtain wall is an independent exterior envelope that can extend across several floors beyond the slab edge, making it suitable for continuous large-area facades."],
-    ["Are curtain walls load-bearing?", "No. Curtain walls do not carry the building’s floor or roof loads. They are lightweight exterior envelope systems anchored to the main structure to resist their own weight, wind and environmental loads while providing weather protection and architectural appearance."],
+    ["Are curtain walls load-bearing?", "No. Curtain walls do not carry the building's floor or roof loads. They are lightweight exterior envelope systems anchored to the main structure to resist their own weight, wind and environmental loads while providing weather protection and architectural appearance."],
   ];
 
   return (
@@ -589,7 +589,7 @@ function BipvContentSection({ testimonials }: { testimonials: [string, string][]
       <ol className="bipv-process-list">{process.map(([title, copy], index) => <li key={title}><b>{String(index + 1).padStart(2, "0")}</b><div><h3>{title}</h3><p>{copy}</p></div></li>)}</ol>
       <header className="bipv-subheading"><h2>What Affects BIPV System Cost and ROI?</h2><p>Cost and return depend on the building, photovoltaic system, local energy conditions and delivery scope.</p></header>
       <div className="bipv-cost-grid">{costs.map(([title, copy]) => <article key={title}><h3>{title}</h3><p>{copy}</p></article>)}</div>
-      <aside className="bipv-selection-note"><p>CHOOSING A BIPV COMPANY</p><h2>Integrated capability reduces interface risk</h2><span>For industrial steel buildings, compare structural engineering, waterproofing, electrical coordination, installation planning, maintenance access and proven project delivery—not photovoltaic modules alone.</span></aside>
+      <aside className="bipv-selection-note"><p>CHOOSING A BIPV COMPANY</p><h2>Integrated capability reduces interface risk</h2><span>For industrial steel buildings, compare structural engineering, waterproofing, electrical coordination, installation planning, maintenance access and proven project delivery rather than photovoltaic modules alone.</span></aside>
     </div></section>
   </>;
 }
@@ -628,7 +628,7 @@ export function BusinessDetailPage({ data }: { data: BusinessPage }) {
           <p className="eyebrow">{data.eyebrow}</p>
           <h1>{data.title}</h1>
           {data.heroParagraphs ? data.heroParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>) : <p>{data.summary}</p>}
-          <a className="round-button" href="/contact">{data.heroCta ?? "Request a Project Quote"} <i>↗</i></a>
+          <a className="round-button" href="/contact">{data.heroCta ?? "Request a Project Quote"} <i>→</i></a>
         </div>
       </section>
 
@@ -675,7 +675,7 @@ export function BusinessDetailPage({ data }: { data: BusinessPage }) {
       </section>)}
 
       {data.hideIntro || data.pembStrengthCarousel || data.steelStrengthCarousel || data.curtainWallPage || data.bipvPage ? <EpcContactSection /> : <section className="contact-cta layer-cta" id="contact">
-        <div className="wide-container cta-card"><img src="/images/steel-laser.jpg" alt="" /><div className="cta-overlay" /><div><h2>Ready to plan your next industrial building?</h2><p>Share the project location, intended use, target area and delivery schedule.</p></div><a className="round-button light-button" href="/contact">Contact Us <i>↗</i></a></div>
+        <div className="wide-container cta-card"><img src="/images/steel-laser.jpg" alt="" /><div className="cta-overlay" /><div><h2>Ready to plan your next industrial building?</h2><p>Share the project location, intended use, target area and delivery schedule.</p></div><a className="round-button light-button" href="/contact">Contact Us <i>→</i></a></div>
       </section>}
 
       <footer>
@@ -683,11 +683,12 @@ export function BusinessDetailPage({ data }: { data: BusinessPage }) {
           <div><MegaSteelWordmark /><p>Integrated industrial construction solutions.</p></div>
           <div><h3>Contact</h3><a href="tel:+8619553105520">0086-19553105520 (WHATSAPP/WECHAT)</a><a href="mailto:megasteelstructure@126.com">megasteelstructure@126.com</a><address>No.1068, Chongde 7th Avenue, Economic and Technological Development Zone, Dezhou City, Shandong Province</address></div>
           <div><h3>Business</h3><a href="/business/epc-contractor">EPC Contractor</a><a href="/business/pre-engineered-metal-building">Metal Buildings</a><a href="/business/steel-structure-fabrication">Steel Fabrication</a><a href="/business/bipv">Mega-BIPV</a></div>
-          <div><h3>Quick Links</h3><a href="/products/steel-structure-system">Products</a><a href="/projects">Projects</a><a href="/company-profile">About Us</a><a href="/contact">Contact</a></div>
+          <div><h3>Quick Links</h3><a href="/products/steel-structure-system">Products</a><a href="/company-profile">About Us</a><a href="/blog">NEWS</a><a href="/contact">Contact</a></div>
         </div>
-        <div className="wide-container copyright"><span>© 2026 MEGASTEEL. Sample company information.</span><span>Replace with verified registration and policy links.</span></div>
+        <div className="wide-container copyright"><span>© 2026 MEGASTEEL. All rights reserved.</span><span>www.chinamegasteel.com</span></div>
       </footer>
       <a className="email-us" href="mailto:megasteelstructure@126.com">Email Us</a>
     </main>
   );
 }
+
