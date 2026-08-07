@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#b7d400"/>
+  <path
+    d="M12 48V16h9.6l10.4 14.4L42.4 16H52v32h-9.2V30.4L32 44.8 21.2 30.4V48Z"
+    fill="#fff"
+  />
+</svg>
