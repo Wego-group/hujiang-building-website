@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { StructuredData } from "./components/structured-data";
 import { ContactRail } from "./components/contact-rail";
+import { ConversionTracker, SiteAnalytics } from "./components/site-analytics";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "./seo";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -23,6 +24,9 @@ export const metadata: Metadata = {
   category: "Industrial Construction",
   formatDetection: { email: false, address: false, telephone: false },
   manifest: "/manifest.webmanifest",
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
   robots: {
     index: true,
     follow: true,
@@ -47,6 +51,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <SiteAnalytics />
+        <ConversionTracker />
         <StructuredData data={[
           {
             "@context": "https://schema.org",
@@ -69,7 +75,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               telephone: "+86-19553105520",
               email: "megasteelstructure@126.com",
               contactType: "sales",
-              availableLanguage: ["English", "Chinese"],
+              availableLanguage: ["English", "Chinese", "Spanish", "French", "German", "Portuguese", "Russian", "Arabic", "Japanese", "Korean", "Italian", "Turkish"],
             },
           },
           {

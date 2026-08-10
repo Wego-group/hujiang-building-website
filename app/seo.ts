@@ -4,6 +4,14 @@ export const SITE_NAME = "Megasteel";
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.chinamegasteel.com").replace(/\/$/, "");
 export const DEFAULT_OG_IMAGE = "/images/hero.png";
 
+export const homepageLanguageUrls = {
+  en: SITE_URL,
+  "zh-CN": `${SITE_URL}/zh`,
+  es: `${SITE_URL}/es`,
+  ru: `${SITE_URL}/ru`,
+  "x-default": SITE_URL,
+};
+
 type SeoEntry = {
   title: string;
   description: string;
@@ -88,10 +96,7 @@ export function metadataFor(pathname: string): Metadata {
     description: seo.description,
     alternates: {
       canonical,
-      languages: {
-        en: canonical,
-        "x-default": canonical,
-      },
+      languages: path === "/" ? homepageLanguageUrls : { en: canonical, "x-default": canonical },
     },
     openGraph: {
       type: "website",

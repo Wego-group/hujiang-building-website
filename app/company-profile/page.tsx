@@ -94,7 +94,24 @@ export default function CompanyProfilePage() {
     <main className="company-profile-page">
       <StructuredData data={[
         breadcrumbSchema("/company-profile", "Company Profile"),
-        { "@context": "https://schema.org", "@type": "AboutPage", name: "About Megasteel", url: `${SITE_URL}/company-profile`, about: { "@id": `${SITE_URL}/#organization` } },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": `${SITE_URL}/company-profile#webpage`,
+          url: `${SITE_URL}/company-profile`,
+          name: "Company Profile | Megasteel",
+          description: "Learn about Megasteel's industrial construction, steel fabrication and global project delivery capabilities.",
+          isPartOf: { "@id": `${SITE_URL}/#website` },
+          about: { "@id": `${SITE_URL}/#organization` },
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "About Megasteel",
+          url: `${SITE_URL}/company-profile`,
+          isPartOf: { "@id": `${SITE_URL}/#website` },
+          about: { "@id": `${SITE_URL}/#organization` },
+        },
       ]} />
       <GlobalHeader active="about" />
       <ScrollAnimations />

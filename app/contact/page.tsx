@@ -14,9 +14,20 @@ export default function ContactPage() {
         breadcrumbSchema("/contact", "Contact Us"),
         {
           "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": `${SITE_URL}/contact#webpage`,
+          url: `${SITE_URL}/contact`,
+          name: "Contact Megasteel",
+          description: "Contact Megasteel for industrial steel building, EPC, fabrication, building envelope and BIPV project enquiries.",
+          isPartOf: { "@id": `${SITE_URL}/#website` },
+          about: { "@id": `${SITE_URL}/#organization` },
+        },
+        {
+          "@context": "https://schema.org",
           "@type": "ContactPage",
           name: "Contact Megasteel",
           url: `${SITE_URL}/contact`,
+          isPartOf: { "@id": `${SITE_URL}/#website` },
           about: { "@id": `${SITE_URL}/#organization` },
         },
       ]} />

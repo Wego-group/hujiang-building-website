@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { GlobalHeader, MegaSteelWordmark } from "../components/global-header";
-import { BusinessDetailPage, businessDetailPages } from "../components/business-detail-page";
+import { BusinessDetailPage, businessDetailPages, businessFaqSchemaMap } from "../components/business-detail-page";
 import { ProductSystemDetailPage, productSystemPages } from "../components/product-system-detail-page";
 import { StructuredData } from "../components/structured-data";
 import { breadcrumbSchema, metadataFor, SITE_URL } from "../seo";
@@ -98,11 +98,22 @@ export default async function LayeredPage({ params }: { params: Promise<{ slug: 
 
   const businessDetail = businessDetailPages[key];
   if (businessDetail) {
+    const faqs = businessFaqSchemaMap[key] ?? businessDetail.faqs;
     return (
       <>
         <StructuredData
           data={[
             breadcrumbSchema(pathname, businessDetail.title),
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "@id": `${SITE_URL}${pathname}#webpage`,
+              url: `${SITE_URL}${pathname}`,
+              name: businessDetail.title,
+              description: businessDetail.summary,
+              isPartOf: { "@id": `${SITE_URL}/#website` },
+              about: { "@id": `${SITE_URL}/#organization` },
+            },
             {
               "@context": "https://schema.org",
               "@type": "Service",
@@ -116,7 +127,7 @@ export default async function LayeredPage({ params }: { params: Promise<{ slug: 
             {
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              mainEntity: businessDetail.faqs.map(([question, answer]) => ({
+              mainEntity: faqs.map(([question, answer]) => ({
                 "@type": "Question",
                 name: question,
                 acceptedAnswer: { "@type": "Answer", text: answer },
@@ -136,6 +147,16 @@ export default async function LayeredPage({ params }: { params: Promise<{ slug: 
         <StructuredData
           data={[
             breadcrumbSchema(pathname, productSystemDetail.title),
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "@id": `${SITE_URL}${pathname}#webpage`,
+              url: `${SITE_URL}${pathname}`,
+              name: productSystemDetail.title,
+              description: productSystemDetail.summary,
+              isPartOf: { "@id": `${SITE_URL}/#website` },
+              about: { "@id": `${SITE_URL}/#organization` },
+            },
             {
               "@context": "https://schema.org",
               "@type": "Product",

@@ -12,6 +12,9 @@ type NewsItem = {
   summary: string;
   image?: string;
   href: string;
+  publishedAt?: string;
+  modifiedAt?: string;
+  author?: string;
 };
 
 const newsItems: NewsItem[] = [];
@@ -20,13 +23,32 @@ const blogBaseMetadata = metadataFor("/blog");
 export const metadata: Metadata = {
   ...blogBaseMetadata,
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
 };
 
 const featuredStory = newsItems[0];
 const archiveItems = newsItems.slice(1);
+
+const newsArticleSchemas = newsItems.map((item) => ({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": `${SITE_URL}${item.href}#article`,
+  url: `${SITE_URL}${item.href}`,
+  headline: item.title,
+  description: item.summary,
+  articleSection: item.category,
+  ...(item.image ? { image: `${SITE_URL}${item.image}` } : {}),
+  ...(item.publishedAt
+    ? { datePublished: item.publishedAt, dateModified: item.modifiedAt ?? item.publishedAt }
+    : {}),
+  author: item.author
+    ? { "@type": "Person", name: item.author }
+    : { "@id": `${SITE_URL}/#organization` },
+  publisher: { "@id": `${SITE_URL}/#organization` },
+  mainEntityOfPage: { "@id": `${SITE_URL}${item.href}#webpage` },
+}));
 
 export default function BlogPage() {
   return (
@@ -35,11 +57,25 @@ export default function BlogPage() {
         breadcrumbSchema("/blog", "NEWS"),
         {
           "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": `${SITE_URL}/blog#webpage`,
+          url: `${SITE_URL}/blog`,
+          name: "Megasteel News",
+          description: "Megasteel company news, project updates and industrial construction insights.",
+          isPartOf: { "@id": `${SITE_URL}/#website` },
+          about: { "@id": `${SITE_URL}/#organization` },
+        },
+        {
+          "@context": "https://schema.org",
           "@type": "CollectionPage",
+          "@id": `${SITE_URL}/blog#collection`,
           name: "Megasteel News",
           url: `${SITE_URL}/blog`,
           description: "Megasteel company news, project updates and industrial construction insights.",
+          isPartOf: { "@id": `${SITE_URL}/#website` },
+          about: { "@id": `${SITE_URL}/#organization` },
         },
+        ...newsArticleSchemas,
       ]} />
       <GlobalHeader active="blog" />
       <ScrollAnimations />

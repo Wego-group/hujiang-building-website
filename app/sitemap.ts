@@ -3,7 +3,7 @@ import { routeSeo, SITE_URL } from "./seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  return Object.keys(routeSeo).filter((path) => path !== "/blog").map((path) => ({
+  return [...Object.keys(routeSeo), "/zh", "/es", "/ru"].map((path) => ({
     url: `${SITE_URL}${path === "/" ? "" : path}`,
     lastModified: now,
     changeFrequency: path === "/blog" ? "weekly" : path === "/" ? "monthly" : "yearly",

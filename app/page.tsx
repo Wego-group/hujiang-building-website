@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { GlobalHeader, MegaSteelWordmark } from "./components/global-header";
 import { ProjectShowcase } from "./components/project-showcase";
 import { ScrollAnimations } from "./components/scroll-animations";
-import { metadataFor } from "./seo";
+import { StructuredData } from "./components/structured-data";
+import { metadataFor, SITE_URL } from "./seo";
 
 export const metadata: Metadata = metadataFor("/");
 
@@ -41,6 +42,16 @@ function SectionTitle({ number, children, light = false }: { number: string; chi
 export default function Home() {
   return (
     <main>
+      <StructuredData data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/#webpage`,
+        url: SITE_URL,
+        name: "Megasteel | Industrial Steel Building Solutions",
+        description: "Megasteel delivers integrated industrial steel building, EPC, fabrication, building envelope and BIPV solutions.",
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        about: { "@id": `${SITE_URL}/#organization` },
+      }} />
       <GlobalHeader active="home" />
       <ScrollAnimations />
 

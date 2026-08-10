@@ -30,6 +30,55 @@ type BusinessPage = {
   faqs: [string, string][];
 };
 
+// These are the FAQ answers visible on the corresponding service pages. The
+// catch-all route imports this source of truth to generate matching FAQPage JSON-LD.
+export const businessFaqSchemaMap: Record<string, [string, string][]> = {
+  "business/epc-contractor": [
+    ["What is a general building contractor?", "A general building contractor oversees a construction project from planning through completion. The contractor coordinates people, materials, schedules, budgets and quality requirements so the work is delivered safely and to the agreed standards."],
+    ["What is a General Building Contractor A?", "A Class A general building contractor is qualified to undertake broad building work and coordinate daily site operations, specialist trades, suppliers and communication between the client, consultants and construction team."],
+    ["What are the key responsibilities of a general building contractor?", "Core responsibilities include project planning, trade and supplier coordination, permits and compliance, cost and schedule control, quality assurance, site safety, issue resolution and progress reporting."],
+    ["What does a Class A contractor license allow in terms of project scope?", "A Class A license generally supports a wide range of residential, commercial, industrial and public building projects. The exact permitted scope remains subject to the regulations in the project location."],
+    ["Can EPC services include steel structure fabrication?", "Yes. EPC delivery can integrate steel processing, fabrication, surface treatment, quality inspection, packaging, transport planning and erection coordination within the overall project programme."],
+    ["What is included in EPC contractor services?", "Typical EPC services cover engineering coordination, procurement, steel fabrication, building-envelope coordination, construction organization, project management, quality and safety control, completion records and handover support."],
+  ],
+  "business/pre-engineered-metal-building": [
+    ["What does PEMB stand for?", "PEMB stands for Pre-Engineered Metal Building. It describes a coordinated steel building system whose structural frame, secondary members, roof and wall components are engineered and manufactured before being delivered for site assembly."],
+    ["What is the life expectancy of a PEB structure?", "A well-designed pre-engineered building can typically remain in service for 25 to 50 years or longer. Service life depends on material quality, protective coatings, environmental exposure, operating conditions and regular inspection and maintenance."],
+    ["What does PEMB mean in construction?", "In construction, PEMB refers to a delivery method in which the building is digitally designed and its steel components are cut, drilled, welded and prepared off-site. The coordinated components are then transported and rapidly assembled at the project location."],
+    ["What are the benefits of pre-engineered buildings?", "Key benefits include faster construction, predictable quality, efficient steel use, reduced site work, lower material waste, large clear spans and flexible layouts for warehouses, factories, logistics centers and commercial facilities."],
+    ["How do pre-engineered buildings compare with traditional construction?", "PEMB systems are generally lighter, faster to manufacture and easier to assemble because more work is completed in a controlled factory. Traditional steel construction can offer greater flexibility for highly complex, multi-story or heavily customized structures."],
+  ],
+  "business/steel-structure-fabrication": [
+    ["What does steel structure fabrication involve?", "Steel structure fabrication transforms raw steel into defined structural components through drawing review, cutting, drilling, assembly, welding, surface treatment, inspection, marking and packaging. Precise engineering and controlled production help ensure quality and reliable site assembly."],
+    ["Why is steel structure fabrication widely used in construction?", "Fabricated steel combines high strength, durability, predictable factory quality and efficient installation. Its strength-to-weight ratio and suitability for prefabrication make it effective for industrial buildings, warehouses, commercial structures and infrastructure."],
+    ["What are the typical steps in the steel structure manufacturing process?", "The typical sequence includes design and planning, material verification, cutting and drilling, assembly and welding, dimensional inspection, shot blasting or painting, component marking and final packaging."],
+    ["What are the main applications of construction steel fabrication?", "Common applications include industrial plants, logistics warehouses, commercial buildings, multi-story structures, parking facilities, bridges, equipment platforms and other projects requiring durable load-bearing frames."],
+    ["Which types of steel are commonly used by structural metal fabricators?", "Steel grades are selected according to structural drawings, loads and applicable standards. Fabrication can support project-specified ASTM, EN, JIS or GB materials, subject to engineering review and availability."],
+    ["Is steel structure fabrication environmentally sustainable?", "Yes. Structural steel is recyclable and can be reused without losing its core material properties. Accurate cutting, optimized design and controlled factory production can also reduce material waste and site work."],
+    ["What should buyers check when choosing Chinese structural steel fabricators?", "Buyers should review workshop capacity, drawing coordination, material traceability, welding control, dimensional accuracy, surface treatment, export packaging, communication and relevant industrial project experience."],
+    ["Can Megasteel support overseas structural steel fabrication projects?", "Yes. Megasteel supports overseas projects with drawing coordination, component processing, inspection, surface treatment, marking, modular packaging and delivery planning for industrial buildings, factories and logistics warehouses."],
+    ["Why is export packaging important in structural steel fabrication?", "Clear marking and modular packaging help contractors identify, unload and install components in the correct sequence. This reduces sorting time, prevents confusion and supports smoother erection on site."],
+  ],
+  "business/building-envelope": [
+    ["What are the different types of curtain walls used in construction?", "Curtain walls are commonly made with glass, aluminum and other durable materials. The main systems include unitized curtain walls, structural glazing and traditional curtain walls. The right material and system depend on the required appearance, environmental performance and structural conditions."],
+    ["What are the primary requirements for a curtain wall design?", "A reliable curtain wall design must address structural integrity, building movement, weather resistance, energy efficiency and acoustic control. These requirements should be coordinated from system selection through detailing, testing and installation."],
+    ["How does a window wall differ from a curtain wall system?", "A window wall normally spans one floor and is supported between the floor slabs above and below. A curtain wall is an independent exterior envelope that can extend across several floors beyond the slab edge, making it suitable for continuous large-area facades."],
+    ["Are curtain walls load-bearing?", "No. Curtain walls do not carry the building's floor or roof loads. They are lightweight exterior envelope systems anchored to the main structure to resist their own weight, wind and environmental loads while providing weather protection and architectural appearance."],
+  ],
+  "business/bipv": [
+    ["What is a BIPV building integrated photovoltaic system, and how does it function?", "A BIPV system incorporates photovoltaic panels directly into a roof, facade or other building element. The modules provide building-envelope protection while generating electricity and can replace conventional construction materials."],
+    ["How are building integrated PV systems designed and planned?", "Design considers energy demand, architectural requirements, module type, daylighting, thermal performance, orientation and site conditions so the system meets both functional and aesthetic goals."],
+    ["What are the benefits of integrating BIPV solar modules into building facades and roofs?", "BIPV modules combine weather protection, architectural expression and renewable generation. They may replace roofing or facade materials and can also reduce heat gain and building energy demand."],
+    ["What types of PV systems are commonly used in BIPV installations?", "BIPV may use grid-connected, standalone or battery-backed systems. Roof and facade solutions are selected around the building's energy strategy, architecture and operational needs."],
+    ["How do BIPV systems contribute to energy savings and return on investment (ROI)?", "Integrated generation reduces purchased electricity and may lower cooling demand. Return depends on system cost, local electricity prices, generation yield, maintenance and the value of replaced envelope materials."],
+    ["What is the difference between BIPV and rooftop solar panels?", "Rooftop panels are mounted above an existing roof. BIPV is integrated into the building envelope and can replace or combine with roof panels, facade panels, curtain walls or skylights."],
+    ["What is a photovoltaic building?", "A photovoltaic building integrates solar generation into its roof, facade or envelope so the building fabric also produces electricity."],
+    ["What is a BIPV roofing system?", "A BIPV roof combines photovoltaic modules with weather protection. Industrial systems must coordinate roof load, purlins, drainage, waterproofing, fire safety, cabling and maintenance access."],
+    ["How should buyers compare BIPV companies?", "Compare structural engineering, roof and facade integration, waterproofing design, electrical coordination, construction support, project references and long-term maintenance planning."],
+    ["Is BIPV suitable for steel structure buildings?", "Yes. BIPV suits steel buildings when roof loads, purlins, waterproofing, cable routing, construction sequence and maintenance requirements are evaluated during design."],
+  ],
+};
+
 export const businessDetailPages: Record<string, BusinessPage> = {
   "business/epc-contractor": {
     eyebrow: "EPC CONTRACTOR",
