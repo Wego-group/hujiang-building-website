@@ -8,6 +8,7 @@ export function SiteFooter() {
         <div>
           <MegaSteelWordmark />
           <p>Integrated industrial construction solutions.</p>
+          <FooterLegalLinks />
         </div>
         <div>
           <h3>Contact</h3>
@@ -33,7 +34,6 @@ export function SiteFooter() {
       <div className="wide-container copyright">
         <span>© 2026 MEGASTEEL. All rights reserved.</span>
         <span>www.chinamegasteel.com</span>
-        <FooterLegalLinks />
       </div>
     </footer>
   );

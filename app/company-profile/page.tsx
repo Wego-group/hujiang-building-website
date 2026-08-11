@@ -238,6 +238,7 @@ export default function CompanyProfilePage() {
           <div>
             <MegaSteelWordmark />
             <p>Integrated industrial construction solutions.</p>
+            <FooterLegalLinks />
           </div>
           <div>
             <h3>Contact</h3>
@@ -263,7 +264,6 @@ export default function CompanyProfilePage() {
         <div className="wide-container copyright">
           <span>漏 2026 MEGASTEEL. All rights reserved.</span>
           <span>www.chinamegasteel.com</span>
-          <FooterLegalLinks />
         </div>
       </footer>
 
