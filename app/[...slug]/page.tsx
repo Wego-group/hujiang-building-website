@@ -5,6 +5,7 @@ import { BusinessDetailPage, businessDetailPages, businessFaqSchemaMap } from ".
 import { ProductSystemDetailPage, productSystemPages } from "../components/product-system-detail-page";
 import { StructuredData } from "../components/structured-data";
 import { breadcrumbSchema, metadataFor, SITE_URL } from "../seo";
+import { FooterLegalLinks } from "../components/footer-legal-links";
 
 type Active = "business" | "products" | "projects" | "about" | "blog" | "contact";
 
@@ -349,6 +350,7 @@ export default async function LayeredPage({ params }: { params: Promise<{ slug: 
         <div className="wide-container copyright">
           <span>© 2026 MEGASTEEL. All rights reserved.</span>
           <span>www.chinamegasteel.com</span>
+          <FooterLegalLinks />
         </div>
       </footer>
 

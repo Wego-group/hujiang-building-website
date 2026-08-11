@@ -3,6 +3,7 @@ import { GlobalHeader } from "./global-header";
 import { ScrollAnimations } from "./scroll-animations";
 import { StructuredData } from "./structured-data";
 import { SITE_NAME, SITE_URL } from "../seo";
+import { FooterLegalLinks } from "./footer-legal-links";
 
 export type LocalizedLandingContent = {
   locale: "zh-CN" | "es" | "ru";
@@ -71,6 +72,6 @@ export function LocalizedLanding({ content }: { content: LocalizedLandingContent
       <div className="localized-services">{content.services.map((service, index) => <article className="localized-service-card reveal-on-scroll" key={service.title}><b>{String(index + 1).padStart(2, "0")}</b><h2>{service.title}</h2><p>{service.description}</p><Link href={service.href}>Megasteel <span aria-hidden="true">→</span></Link></article>)}</div>
     </div></section>
     <section className="localized-contact-cta" aria-label={content.ctaTitle}><div className="site-shell"><div className="cta-band reveal-on-scroll"><div><h2>{content.ctaTitle}</h2><p>{content.ctaText}</p></div><Link href="/contact" className="pill-button pill-button--light">{content.ctaLabel}<span aria-hidden="true">↗</span></Link></div></div></section>
-    <footer className="localized-footer"><div className="site-shell">© {new Date().getFullYear()} {SITE_NAME}. {content.copyright}</div></footer>
+    <footer className="localized-footer"><div className="site-shell">© {new Date().getFullYear()} {SITE_NAME}. {content.copyright}<FooterLegalLinks /></div></footer>
   </main>;
 }

@@ -3,6 +3,7 @@ import { GlobalHeader, MegaSteelWordmark } from "./components/global-header";
 import { ProjectShowcase } from "./components/project-showcase";
 import { ScrollAnimations } from "./components/scroll-animations";
 import { StructuredData } from "./components/structured-data";
+import { FooterLegalLinks } from "./components/footer-legal-links";
 import { metadataFor, SITE_URL } from "./seo";
 
 export const metadata: Metadata = metadataFor("/");
@@ -234,6 +235,7 @@ export default function Home() {
         <div className="wide-container copyright">
           <span>© 2026 MEGASTEEL. All rights reserved.</span>
           <span>www.chinamegasteel.com</span>
+          <FooterLegalLinks />
         </div>
       </footer>
 

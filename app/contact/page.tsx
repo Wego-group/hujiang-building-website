@@ -4,6 +4,7 @@ import { GlobalHeader, MegaSteelWordmark } from "../components/global-header";
 import { ScrollAnimations } from "../components/scroll-animations";
 import { metadataFor, breadcrumbSchema, SITE_URL } from "../seo";
 import { StructuredData } from "../components/structured-data";
+import { FooterLegalLinks } from "../components/footer-legal-links";
 
 export const metadata: Metadata = metadataFor("/contact");
 
@@ -89,6 +90,7 @@ export default function ContactPage() {
         <div className="wide-container copyright">
           <span>© 2026 MEGASTEEL. All rights reserved.</span>
           <span>www.chinamegasteel.com</span>
+          <FooterLegalLinks />
         </div>
       </footer>
 

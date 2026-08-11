@@ -74,6 +74,14 @@ export const routeSeo: Record<string, SeoEntry> = {
     description: "Contact Megasteel to discuss an industrial building, EPC, PEMB, steel fabrication, curtain wall or BIPV project and request a tailored quotation.",
     image: "/images/contact-page-hero.png",
   },
+  "/sitemap.html": {
+    title: "Sitemap | Megasteel",
+    description: "Browse Megasteel's industrial construction, steel structure, building envelope, BIPV, company and contact pages.",
+  },
+  "/privacy-policy.html": {
+    title: "Privacy Policy | Megasteel",
+    description: "Megasteel's privacy policy explains how website enquiry and contact information is handled.",
+  },
 };
 
 export function normalizePath(pathname: string) {

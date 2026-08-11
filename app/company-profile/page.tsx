@@ -5,6 +5,7 @@ import { ScrollAnimations } from "../components/scroll-animations";
 import { metadataFor } from "../seo";
 import { StructuredData } from "../components/structured-data";
 import { breadcrumbSchema, SITE_URL } from "../seo";
+import { FooterLegalLinks } from "../components/footer-legal-links";
 
 export const metadata: Metadata = metadataFor("/company-profile");
 
@@ -262,6 +263,7 @@ export default function CompanyProfilePage() {
         <div className="wide-container copyright">
           <span>漏 2026 MEGASTEEL. All rights reserved.</span>
           <span>www.chinamegasteel.com</span>
+          <FooterLegalLinks />
         </div>
       </footer>
 

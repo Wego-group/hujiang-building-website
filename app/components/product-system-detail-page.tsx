@@ -1,6 +1,7 @@
 ﻿import { GlobalHeader, MegaSteelWordmark } from "./global-header";
 import { ScrollAnimations } from "./scroll-animations";
 import { EpcContactSection } from "./business-detail-page";
+import { FooterLegalLinks } from "./footer-legal-links";
 
 type ProductItem = [string, string, string];
 
@@ -404,6 +405,7 @@ export function ProductSystemDetailPage({ data }: { data: ProductSystemPage }) {
         <div className="wide-container copyright">
           <span>© 2026 MEGASTEEL. All rights reserved.</span>
           <span>www.chinamegasteel.com</span>
+          <FooterLegalLinks />
         </div>
       </footer>
 

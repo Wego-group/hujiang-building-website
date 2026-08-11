@@ -3,6 +3,7 @@ import { CurtainWallStrengthCarousel } from "./curtain-wall-strength-carousel";
 import { PembStrengthCarousel } from "./pemb-strength-carousel";
 import { ScrollAnimations } from "./scroll-animations";
 import { SteelFabricationStrengthCarousel } from "./steel-fabrication-strength-carousel";
+import { FooterLegalLinks } from "./footer-legal-links";
 
 type BusinessPage = {
   eyebrow: string;
@@ -734,7 +735,7 @@ export function BusinessDetailPage({ data }: { data: BusinessPage }) {
           <div><h3>Business</h3><a href="/business/epc-contractor">EPC Contractor</a><a href="/business/pre-engineered-metal-building">Metal Buildings</a><a href="/business/steel-structure-fabrication">Steel Fabrication</a><a href="/business/bipv">Mega-BIPV</a></div>
           <div><h3>Quick Links</h3><a href="/products/steel-structure-system">Products</a><a href="/company-profile">About Us</a><a href="/blog">NEWS</a><a href="/contact">Contact</a></div>
         </div>
-        <div className="wide-container copyright"><span>© 2026 MEGASTEEL. All rights reserved.</span><span>www.chinamegasteel.com</span></div>
+        <div className="wide-container copyright"><span>© 2026 MEGASTEEL. All rights reserved.</span><span>www.chinamegasteel.com</span><FooterLegalLinks /></div>
       </footer>
       <a className="email-us" href="mailto:megasteelstructure@126.com">Email Us</a>
     </main>
