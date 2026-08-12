@@ -15,7 +15,7 @@ const sections = [
   ["Data Retention and Security", "We retain enquiry information only for as long as reasonably necessary for the purposes described in this policy. We use appropriate organisational and technical measures to protect information, but no online transmission or storage method is completely secure."],
   ["Cookies and Analytics", "This website may use essential technologies and, where enabled, analytics services to understand website usage and improve performance. You can manage cookies through your browser settings."],
   ["Your Choices", "You may contact us to request access to, correction of or deletion of personal information you have provided, subject to applicable law and reasonable identity verification."],
-  ["Contact", "For privacy questions or requests, please email megasteelstructure@126.com or call 0086-19553105520."],
+  ["Contact", "For privacy questions or requests, please email sales@chinamegasteel.com or call 0086-19553105520."],
 ] as const;
 
 export default function PrivacyPolicyPage() {

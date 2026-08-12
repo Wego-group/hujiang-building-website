@@ -13,7 +13,7 @@ export function SiteFooter() {
         <div>
           <h3>Contact</h3>
           <a href="tel:+8619553105520">0086-19553105520</a>
-          <a href="mailto:megasteelstructure@126.com">megasteelstructure@126.com</a>
+          <a href="mailto:sales@chinamegasteel.com">sales@chinamegasteel.com</a>
           <address>No. 1068, Chongde 7th Avenue, Economic and Technological Development Zone, Dezhou City, Shandong Province, China</address>
         </div>
         <div>

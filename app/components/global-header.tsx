@@ -92,9 +92,9 @@ export function GlobalHeader({ active = "home" }: { active?: ActiveSection }) {
                 <i aria-hidden="true">☎</i>
                 0086-19553105520 (WHATSAPP/WECHAT)
               </a>
-              <a href="mailto:megasteelstructure@126.com">
+              <a href="mailto:sales@chinamegasteel.com">
                 <i aria-hidden="true">✉</i>
-                megasteelstructure@126.com
+                sales@chinamegasteel.com
               </a>
               <span className="info-line" />
               <LanguageSwitcher />

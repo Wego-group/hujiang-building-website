@@ -215,7 +215,7 @@ export default function Home() {
           <div>
             <h3>Contact</h3>
             <a href="tel:+8619553105520">0086-19553105520 (WHATSAPP/WECHAT)</a>
-            <a href="mailto:megasteelstructure@126.com">megasteelstructure@126.com</a>
+            <a href="mailto:sales@chinamegasteel.com">sales@chinamegasteel.com</a>
             <address>No.1068, Chongde 7th Avenue, Economic and Technological Development Zone, Dezhou City, Shandong Province</address>
           </div>
           <div>
@@ -229,7 +229,7 @@ export default function Home() {
             <h3>Quick Contact</h3>
             <a href="https://wa.me/8619553105520" target="_blank" rel="noreferrer">WhatsApp</a>
             <a href="/contact#wechat">WeChat: 19553105520</a>
-            <a href="mailto:megasteelstructure@126.com">Email</a>
+            <a href="mailto:sales@chinamegasteel.com">Email</a>
             <a href="/contact">Contact Us</a>
           </div>
         </div>
@@ -239,7 +239,7 @@ export default function Home() {
         </div>
       </footer>
 
-      <a className="email-us" href="mailto:megasteelstructure@126.com">Email Us</a>
+      <a className="email-us" href="mailto:sales@chinamegasteel.com">Email Us</a>
     </main>
   );
 }

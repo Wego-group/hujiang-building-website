@@ -11,7 +11,7 @@ export function ContactRail() {
       <Link href="/contact#wechat-qr" aria-label="WeChat contact: 19553105520" data-label="WeChat">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 3C4.3 3 0 6.5 0 10.8c0 2.5 1.4 4.6 3.6 6.1L2.7 20l3.7-1.8c1 .3 2 .5 3.1.5h.5a7.5 7.5 0 0 1-.5-2.7c0-4.1 3.8-7.5 8.7-7.5h.5C17.5 5.3 13.9 3 9.5 3Zm-3 5.2c-.7 0-1.2-.5-1.2-1.2s.5-1.2 1.2-1.2S7.7 6.3 7.7 7s-.5 1.2-1.2 1.2Zm6.1 0c-.7 0-1.2-.5-1.2-1.2s.5-1.2 1.2-1.2 1.2.5 1.2 1.2-.5 1.2-1.2 1.2ZM24 16c0-3.5-3.5-6.3-7.8-6.3s-7.8 2.8-7.8 6.3 3.5 6.3 7.8 6.3c.9 0 1.8-.1 2.6-.4l3 1.5-.7-2.6C22.9 19.6 24 17.9 24 16Zm-10.3-1c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1Zm5 0c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1Z" /></svg>
       </Link>
-      <a href="mailto:megasteelstructure@126.com" aria-label="Email Megasteel" data-label="Email">
+      <a href="mailto:sales@chinamegasteel.com" aria-label="Email Megasteel" data-label="Email">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm10 9L2.8 6.4 2 7.5V18h20V7.5l-.8-1.1L12 13Zm0-2.5L20.3 6H3.7l8.3 4.5Z" /></svg>
       </a>
       <Link href="/contact" aria-label="Open the Contact Us page" data-label="Contact Us">

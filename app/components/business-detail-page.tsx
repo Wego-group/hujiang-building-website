@@ -350,7 +350,7 @@ export function EpcContactSection({ plain = false }: { plain?: boolean } = {}) {
           <p>Tell us what you plan to build. Our team will help you organize the next steps for engineering, procurement and construction.</p>
           <div className="epc-contact-information">
             <div><span aria-hidden="true">→</span><p><small>TEL</small><a href="tel:+8619553105520">0086-19553105520 (WHATSAPP/WECHAT)</a></p></div>
-            <div><span aria-hidden="true">→</span><p><small>EMAIL</small><a href="mailto:megasteelstructure@126.com">megasteelstructure@126.com</a></p></div>
+            <div><span aria-hidden="true">→</span><p><small>EMAIL</small><a href="mailto:sales@chinamegasteel.com">sales@chinamegasteel.com</a></p></div>
             <div><span aria-hidden="true">→</span><p><small>ADDRESS</small><em>No.1068, Chongde 7th Avenue, Economic and Technological Development Zone, Dezhou City, Shandong Province</em></p></div>
           </div>
         </div>
@@ -731,13 +731,13 @@ export function BusinessDetailPage({ data }: { data: BusinessPage }) {
       <footer>
         <div className="wide-container footer-grid">
           <div><MegaSteelWordmark /><p>Integrated industrial construction solutions.</p><FooterLegalLinks /></div>
-          <div><h3>Contact</h3><a href="tel:+8619553105520">0086-19553105520 (WHATSAPP/WECHAT)</a><a href="mailto:megasteelstructure@126.com">megasteelstructure@126.com</a><address>No.1068, Chongde 7th Avenue, Economic and Technological Development Zone, Dezhou City, Shandong Province</address></div>
+          <div><h3>Contact</h3><a href="tel:+8619553105520">0086-19553105520 (WHATSAPP/WECHAT)</a><a href="mailto:sales@chinamegasteel.com">sales@chinamegasteel.com</a><address>No.1068, Chongde 7th Avenue, Economic and Technological Development Zone, Dezhou City, Shandong Province</address></div>
           <div><h3>Business</h3><a href="/business/epc-contractor">EPC Contractor</a><a href="/business/pre-engineered-metal-building">Metal Buildings</a><a href="/business/steel-structure-fabrication">Steel Fabrication</a><a href="/business/bipv">Mega-BIPV</a></div>
           <div><h3>Quick Links</h3><a href="/products/steel-structure-system">Products</a><a href="/company-profile">About Us</a><a href="/blog">NEWS</a><a href="/contact">Contact</a></div>
         </div>
         <div className="wide-container copyright"><span>© 2026 MEGASTEEL. All rights reserved.</span><span>www.chinamegasteel.com</span></div>
       </footer>
-      <a className="email-us" href="mailto:megasteelstructure@126.com">Email Us</a>
+      <a className="email-us" href="mailto:sales@chinamegasteel.com">Email Us</a>
     </main>
   );
 }

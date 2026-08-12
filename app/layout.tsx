@@ -73,7 +73,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             contactPoint: {
               "@type": "ContactPoint",
               telephone: "+86-19553105520",
-              email: "megasteelstructure@126.com",
+              email: "sales@chinamegasteel.com",
               contactType: "sales",
               availableLanguage: ["English", "Chinese", "Spanish", "French", "German", "Portuguese", "Russian", "Arabic", "Japanese", "Korean", "Italian", "Turkish"],
             },

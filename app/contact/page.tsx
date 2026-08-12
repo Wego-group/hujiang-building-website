@@ -52,7 +52,7 @@ export default function ContactPage() {
               <p>Scan the QR code below to add the Megasteel team directly on WeChat for project communication.</p>
               <p><strong>WeChat / WhatsApp:</strong> 19553105520</p>
             </div>
-            <img src="/images/wechat-qr.png" alt="Megasteel WeChat QR code" />
+              <img src="/images/wechat-qr-cropped.png" alt="Megasteel WeChat QR code" />
           </div>
         </div>
       </section>
@@ -71,7 +71,7 @@ export default function ContactPage() {
           <div>
             <h3>Contact</h3>
             <a href="tel:+8619553105520">0086-19553105520 (WHATSAPP/WECHAT)</a>
-            <a href="mailto:megasteelstructure@126.com">megasteelstructure@126.com</a>
+            <a href="mailto:sales@chinamegasteel.com">sales@chinamegasteel.com</a>
             <address>No.1068, Chongde 7th Avenue, Economic and Technological Development Zone, Dezhou City, Shandong Province</address>
           </div>
           <div>
@@ -84,7 +84,7 @@ export default function ContactPage() {
           <div>
             <h3>Contact Page</h3>
             <a href="/contact">Contact Us</a>
-            <a href="mailto:megasteelstructure@126.com">Email</a>
+            <a href="mailto:sales@chinamegasteel.com">Email</a>
             <a href="tel:+8619553105520">Phone</a>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function ContactPage() {
         </div>
       </footer>
 
-      <a className="email-us" href="mailto:megasteelstructure@126.com">
+      <a className="email-us" href="mailto:sales@chinamegasteel.com">
         Email Us
       </a>
     </main>
