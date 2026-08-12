@@ -69,6 +69,11 @@ export const routeSeo: Record<string, SeoEntry> = {
     description: "Read Megasteel company news, project updates and technical insights about industrial steel buildings, EPC delivery, envelopes and BIPV.",
     image: "/images/news-hero.png",
   },
+  "/news": {
+    title: "Megasteel News | Industrial Construction Insights",
+    description: "Megasteel company news, project updates and technical insights about industrial steel buildings, EPC delivery, envelopes and BIPV.",
+    image: "/images/news-hero.png",
+  },
   "/contact": {
     title: "Contact Megasteel | Request a Building Project Quote",
     description: "Contact Megasteel to discuss an industrial building, EPC, PEMB, steel fabrication, curtain wall or BIPV project and request a tailored quotation.",
