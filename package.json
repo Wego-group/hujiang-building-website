@@ -14,6 +14,7 @@
     "start:vinext": "vinext start",
     "test": "npm run build && node --test tests/rendered-html.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
+    "news:publish": "node scripts/publish-queued-news.mjs",
     "db:generate": "drizzle-kit generate"
   },
   "dependencies": {
