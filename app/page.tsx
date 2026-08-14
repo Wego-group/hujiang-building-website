@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { GlobalHeader, MegaSteelWordmark } from "./components/global-header";
 import { ProjectShowcase } from "./components/project-showcase";
 import { ScrollAnimations } from "./components/scroll-animations";
 import { StructuredData } from "./components/structured-data";
 import { FooterLegalLinks } from "./components/footer-legal-links";
 import { metadataFor, SITE_URL } from "./seo";
+import { localePath, type Locale } from "../lib/i18n";
 
 export const metadata: Metadata = metadataFor("/");
 
@@ -40,14 +42,15 @@ function SectionTitle({ number, children, light = false }: { number: string; chi
   );
 }
 
-export default function Home() {
+export default function Home({ locale = "en" }: { locale?: Locale }) {
+  const pageUrl = `${SITE_URL}${localePath(locale) === "/" ? "" : localePath(locale)}`;
   return (
     <main>
       <StructuredData data={{
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "@id": `${SITE_URL}/#webpage`,
-        url: SITE_URL,
+        "@id": `${pageUrl}/#webpage`,
+        url: pageUrl,
         name: "Megasteel | Industrial Steel Building Solutions",
         description: "Megasteel delivers integrated industrial steel building, EPC, fabrication, building envelope and BIPV solutions.",
         isPartOf: { "@id": `${SITE_URL}/#website` },
@@ -57,7 +60,7 @@ export default function Home() {
       <ScrollAnimations />
 
       <section className="reference-hero" id="home">
-        <img src="/images/hero.png" alt="Megasteel industrial construction campus" />
+        <Image src="/images/hero.png" alt="Megasteel industrial construction campus" fill priority sizes="100vw" />
         <div className="hero-shade" />
         <div className="wide-container hero-copy">
           <h1>

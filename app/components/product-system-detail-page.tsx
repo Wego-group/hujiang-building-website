@@ -1,4 +1,5 @@
 ﻿import { GlobalHeader, MegaSteelWordmark } from "./global-header";
+import Image from "next/image";
 import { ScrollAnimations } from "./scroll-animations";
 import { EpcContactSection } from "./business-detail-page";
 import { FooterLegalLinks } from "./footer-legal-links";
@@ -246,7 +247,7 @@ export function ProductSystemDetailPage({ data }: { data: ProductSystemPage }) {
       <ScrollAnimations />
 
       <section className="product-system-hero">
-        <img src={data.heroImage} alt={`${data.title} for industrial buildings`} />
+        <Image src={data.heroImage} alt={`${data.title} for industrial buildings`} fill priority sizes="100vw" />
         <div className="product-system-hero-shade" />
         <div className="wide-container product-system-hero-copy">
           <p className="eyebrow">{data.eyebrow}</p>
@@ -541,5 +542,4 @@ function EnclosureTestimonialsSection({ data }: { data: ProductSystemPage }) {
     </section>
   );
 }
-
 

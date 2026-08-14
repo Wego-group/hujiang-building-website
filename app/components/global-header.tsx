@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { LanguageSwitcher } from "./language-switcher";
+import { localeFromPathname, localePath, navigationLabels, withoutLocalePrefix } from "../../lib/i18n";
 
 type ActiveSection = "home" | "business" | "products" | "projects" | "about" | "blog" | "contact";
 
@@ -47,6 +49,16 @@ export function MegaSteelWordmark() {
 
 export function GlobalHeader({ active = "home" }: { active?: ActiveSection }) {
   const [collapsed, setCollapsed] = useState(false);
+  const pathname = usePathname();
+  const locale = localeFromPathname(pathname);
+  const labels = navigationLabels(locale);
+  const href = (path: string) => localePath(locale, withoutLocalePrefix(path));
+  const localizedNavigation = navigation.map((item) => ({
+    ...item,
+    href: href(item.href),
+    label: item.key === "home" ? labels.home : item.key === "business" ? labels.business : item.key === "products" ? labels.products : item.key === "about" ? labels.about : item.key === "blog" ? labels.news : labels.contact,
+    children: item.children?.map(([label, path, detail]) => [label, href(path), detail] as [string, string, string]),
+  }));
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -104,11 +116,11 @@ export function GlobalHeader({ active = "home" }: { active?: ActiveSection }) {
 
         <nav className="main-navigation" aria-label="Primary navigation">
           <div className="wide-container nav-inner">
-            <Link className="logo-inline" href="/" aria-label="Megasteel home">
+            <Link className="logo-inline" href={href("/")} aria-label="Megasteel home">
               <MegaSteelWordmark />
             </Link>
 
-            {navigation.map((item) => (
+            {localizedNavigation.map((item) => (
               <div className={`nav-item ${item.children ? "has-dropdown" : ""}`} key={item.label}>
                 <Link className={active === item.key ? "current" : ""} href={item.href}>
                   {item.label}
@@ -143,13 +155,13 @@ export function GlobalHeader({ active = "home" }: { active?: ActiveSection }) {
       </header>
 
       <header className="mobile-header">
-        <Link href="/" aria-label="Megasteel home">
+        <Link href={href("/")} aria-label="Megasteel home">
           <MegaSteelWordmark />
         </Link>
         <details className="mobile-menu">
           <summary>☰</summary>
           <nav>
-            {navigation.map((item) =>
+            {localizedNavigation.map((item) =>
               item.children ? (
                 <details key={item.label}>
                   <summary>

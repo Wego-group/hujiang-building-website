@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
+import { localeMeta, localePath, locales } from "../lib/i18n";
 
 export const SITE_NAME = "Megasteel";
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.chinamegasteel.com").replace(/\/$/, "");
 export const DEFAULT_OG_IMAGE = "/images/hero.png";
 
 export const homepageLanguageUrls = {
-  en: SITE_URL,
-  "zh-CN": `${SITE_URL}/zh`,
-  es: `${SITE_URL}/es`,
-  ru: `${SITE_URL}/ru`,
+  ...Object.fromEntries(locales.map((locale) => [localeMeta[locale].htmlLang, `${SITE_URL}${localePath(locale) === "/" ? "" : localePath(locale)}`])),
   "x-default": SITE_URL,
 };
 
@@ -103,13 +101,17 @@ export function metadataFor(pathname: string): Metadata {
   };
   const canonical = `${SITE_URL}${path === "/" ? "" : path}`;
   const image = `${SITE_URL}${seo.image ?? DEFAULT_OG_IMAGE}`;
+  const languageAlternates = Object.fromEntries(locales.map((locale) => [
+    localeMeta[locale].htmlLang,
+    `${SITE_URL}${localePath(locale, path) === "/" ? "" : localePath(locale, path)}`,
+  ]));
 
   return {
     title: { absolute: seo.title },
     description: seo.description,
     alternates: {
       canonical,
-      languages: path === "/" ? homepageLanguageUrls : { en: canonical, "x-default": canonical },
+      languages: { ...(path === "/" ? homepageLanguageUrls : languageAlternates), "x-default": `${SITE_URL}${path === "/" ? "" : path}` },
     },
     openGraph: {
       type: "website",

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { EpcContactSection } from "../components/business-detail-page";
 import { GlobalHeader, MegaSteelWordmark } from "../components/global-header";
 import { ScrollAnimations } from "../components/scroll-animations";
@@ -118,7 +119,7 @@ export default function CompanyProfilePage() {
       <ScrollAnimations />
 
       <section className="company-profile-hero">
-        <img src="/images/company-profile-hero.png" alt="Megasteel team collaboration" />
+        <Image src="/images/company-profile-hero.png" alt="Megasteel team collaboration" fill priority sizes="100vw" />
         <div className="company-profile-hero-shade" />
         <div className="wide-container company-profile-hero-copy">
           <h1>About Megasteel</h1>

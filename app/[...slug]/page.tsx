@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound, redirect } from "next/navigation";
 import { GlobalHeader, MegaSteelWordmark } from "../components/global-header";
 import { BusinessDetailPage, businessDetailPages, businessFaqSchemaMap } from "../components/business-detail-page";
@@ -6,6 +7,14 @@ import { ProductSystemDetailPage, productSystemPages } from "../components/produ
 import { StructuredData } from "../components/structured-data";
 import { breadcrumbSchema, metadataFor, SITE_URL } from "../seo";
 import { FooterLegalLinks } from "../components/footer-legal-links";
+import Home from "../page";
+import CompanyProfilePage from "../company-profile/page";
+import ContactPage from "../contact/page";
+import NewsPage from "../news/page";
+import NewsArticlePage from "../news/[slug]/page";
+import PrivacyPolicyPage from "../privacy-policy.html/page";
+import SitemapHtmlPage from "../sitemap.html/page";
+import { isLocale, localeMeta, localePath, locales, localizedSeo } from "../../lib/i18n";
 
 type Active = "business" | "products" | "projects" | "about" | "blog" | "contact";
 
@@ -77,25 +86,58 @@ function page(
 }
 
 export function generateStaticParams() {
-  return [...new Set([...Object.keys(pages), ...Object.keys(businessDetailPages), ...Object.keys(productSystemPages)])].map(
-    (key) => ({ slug: key.split("/") }),
-  );
+  const EnglishPaths = [...new Set([...Object.keys(pages), ...Object.keys(businessDetailPages), ...Object.keys(productSystemPages)])];
+  const fullSitePaths = ["", "company-profile", "contact", "news", "privacy-policy.html", "sitemap.html", ...EnglishPaths];
+  return [
+    ...EnglishPaths.map((key) => ({ slug: key.split("/") })),
+    ...locales.filter((locale) => locale !== "en").flatMap((locale) => fullSitePaths.map((key) => ({ slug: [locale, ...key.split("/").filter(Boolean)] }))),
+  ];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
   const { slug } = await params;
-  return metadataFor(`/${slug.join("/")}`);
+  const locale = isLocale(slug[0]) && slug[0] !== "en" ? slug[0] : "en";
+  const path = `/${(locale === "en" ? slug : slug.slice(1)).join("/")}`.replace(/\/$/, "") || "/";
+  const base = metadataFor(path);
+  if (locale === "en") return base;
+  const canonical = `${SITE_URL}${localePath(locale, path)}`;
+  const languageAlternates = Object.fromEntries(locales.map((item) => [localeMeta[item].htmlLang, `${SITE_URL}${localePath(item, path)}`]));
+  const copy = localizedSeo(locale, typeof base.title === "string" ? base.title : "Megasteel", base.description ?? "");
+  return {
+    ...base,
+    title: { absolute: copy.title },
+    description: copy.description,
+    alternates: { canonical, languages: { ...languageAlternates, "x-default": `${SITE_URL}${path === "/" ? "" : path}` } },
+    openGraph: { ...(base.openGraph ?? {}), locale: localeMeta[locale].ogLocale, url: canonical },
+  };
 }
 
 export default async function LayeredPage({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await params;
-  const key = slug.join("/");
+  const locale = isLocale(slug[0]) && slug[0] !== "en" ? slug[0] : "en";
+  const localized = locale !== "en";
+  const localSlug = localized ? slug.slice(1) : slug;
+  const key = localSlug.join("/");
   const pathname = `/${key}`;
 
+  // Every native locale renders the same complete page component tree as English.
+  // Components obtain the current locale from the URL, so navigation never drops
+  // visitors back to an English URL.
+  if (localized) {
+    if (!key) return <Home locale={locale} />;
+    if (key === "company-profile") return <CompanyProfilePage />;
+    if (key === "contact" || key === "contact-us") return <ContactPage />;
+    if (key === "news" || key === "blog") return <NewsPage />;
+    if (key === "privacy-policy.html") return <PrivacyPolicyPage />;
+    if (key === "sitemap.html") return <SitemapHtmlPage />;
+    if (key.startsWith("news/")) return <NewsArticlePage params={Promise.resolve({ slug: key.slice(5) })} />;
+  }
+
   if (key === "products") notFound();
-  if (key === "products/building-enclosure-system") redirect("/products/building-enclosure-system-in-architecture");
-  if (key === "about" || key === "about/video" || key === "about/catalog") redirect("/company-profile");
-  if (key === "projects" || key.startsWith("projects/")) redirect("/");
+  if (key === "products/building-enclosure-system") redirect(localePath(locale, "/products/building-enclosure-system-in-architecture"));
+  if (key === "about" || key === "about/video" || key === "about/catalog") redirect(localePath(locale, "/company-profile"));
+  if (key === "projects" || key.startsWith("projects/")) redirect(localePath(locale));
+  const publicPathname = localePath(locale, pathname);
 
   const businessDetail = businessDetailPages[key];
   if (businessDetail) {
@@ -104,12 +146,12 @@ export default async function LayeredPage({ params }: { params: Promise<{ slug: 
       <>
         <StructuredData
           data={[
-            breadcrumbSchema(pathname, businessDetail.title),
+            breadcrumbSchema(publicPathname, businessDetail.title),
             {
               "@context": "https://schema.org",
               "@type": "WebPage",
-              "@id": `${SITE_URL}${pathname}#webpage`,
-              url: `${SITE_URL}${pathname}`,
+              "@id": `${SITE_URL}${publicPathname}#webpage`,
+              url: `${SITE_URL}${publicPathname}`,
               name: businessDetail.title,
               description: businessDetail.summary,
               isPartOf: { "@id": `${SITE_URL}/#website` },
@@ -120,7 +162,7 @@ export default async function LayeredPage({ params }: { params: Promise<{ slug: 
               "@type": "Service",
               name: businessDetail.title,
               description: businessDetail.summary,
-              url: `${SITE_URL}${pathname}`,
+              url: `${SITE_URL}${publicPathname}`,
               provider: { "@id": `${SITE_URL}/#organization` },
               areaServed: "Worldwide",
               serviceType: businessDetail.eyebrow,
@@ -147,12 +189,12 @@ export default async function LayeredPage({ params }: { params: Promise<{ slug: 
       <>
         <StructuredData
           data={[
-            breadcrumbSchema(pathname, productSystemDetail.title),
+            breadcrumbSchema(publicPathname, productSystemDetail.title),
             {
               "@context": "https://schema.org",
               "@type": "WebPage",
-              "@id": `${SITE_URL}${pathname}#webpage`,
-              url: `${SITE_URL}${pathname}`,
+              "@id": `${SITE_URL}${publicPathname}#webpage`,
+              url: `${SITE_URL}${publicPathname}`,
               name: productSystemDetail.title,
               description: productSystemDetail.summary,
               isPartOf: { "@id": `${SITE_URL}/#website` },
@@ -165,7 +207,7 @@ export default async function LayeredPage({ params }: { params: Promise<{ slug: 
               description: productSystemDetail.summary,
               image: `${SITE_URL}${productSystemDetail.heroImage}`,
               brand: { "@type": "Brand", name: "Megasteel" },
-              url: `${SITE_URL}${pathname}`,
+              url: `${SITE_URL}${publicPathname}`,
             },
           ]}
         />
@@ -187,7 +229,7 @@ export default async function LayeredPage({ params }: { params: Promise<{ slug: 
       <GlobalHeader active={data.active} />
 
       <section className="layer-hero">
-        <img src={data.image} alt={`${data.title} overview`} />
+        <Image src={data.image} alt={`${data.title} overview`} fill priority sizes="100vw" />
         <div className="layer-hero-shade" />
         <div className="wide-container layer-hero-content">
           <p className="eyebrow">{data.eyebrow}</p>

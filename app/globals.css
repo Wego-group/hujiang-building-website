@@ -1051,10 +1051,12 @@ body .reveal-ready.is-revealed { opacity:1; transform:none; filter:none; transit
 .language-menu button:hover,.language-menu button:focus-visible,.language-menu button.active{background:#edf4d9;color:#668500;outline:none}
 .language-menu button.active::after{content:"✓";float:right;font-weight:700}
 @keyframes language-menu-in{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
-#google_translate_element{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
-.goog-te-banner-frame,.goog-te-balloon-frame,.skiptranslate iframe{display:none!important}
-body{top:0!important}
-#goog-gt-tt,.goog-te-spinner-pos,.goog-text-highlight{display:none!important}
+/* Native locale routes never mutate the DOM through third-party translation. */
+html[dir="rtl"] .reference-header,html[dir="rtl"] .mobile-header,html[dir="rtl"] main{direction:rtl}
+html[dir="rtl"] .info-links,html[dir="rtl"] .nav-inner,html[dir="rtl"] .footer-grid{direction:rtl}
+html[dir="rtl"] .language-menu{left:0;right:auto;text-align:right}
+html[dir="rtl"] .mega-dropdown{right:auto;left:0}
+html[dir="rtl"] .round-button i,html[dir="rtl"] .pill-button span{display:inline-block;transform:scaleX(-1)}
 
 /* Dedicated, indexable priority-language landing pages */
 .localized-eyebrow{margin:0 0 .7rem;color:#b3d600;font-size:.76rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}

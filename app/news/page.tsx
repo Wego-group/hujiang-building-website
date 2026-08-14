@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { EpcContactSection } from "../components/business-detail-page";
 import { GlobalHeader, MegaSteelWordmark } from "../components/global-header";
 import { ScrollAnimations } from "../components/scroll-animations";
@@ -14,7 +15,7 @@ export default async function NewsPage() {
   return <main className="news-page-shell">
     <StructuredData data={[breadcrumbSchema("/news", "NEWS"), { "@context": "https://schema.org", "@type": "CollectionPage", "@id": `${SITE_URL}/news#collection`, url: `${SITE_URL}/news`, name: "Megasteel News", description: "Megasteel company news, project updates and industrial construction insights." }]} />
     <GlobalHeader active="blog" /><ScrollAnimations />
-    <section className="news-page-hero"><img src="/images/news-hero.png" alt="Megasteel news editorial workspace" /><div className="news-page-hero-shade" /><div className="wide-container news-page-hero-copy"><h1>NEWS</h1></div></section>
+    <section className="news-page-hero"><Image src="/images/news-hero.png" alt="Megasteel news editorial workspace" fill priority sizes="100vw" /><div className="news-page-hero-shade" /><div className="wide-container news-page-hero-copy"><h1>NEWS</h1></div></section>
     <section className="news-archive patterned"><div className="wide-container section-padding">
       <header className="news-archive-heading"><span aria-hidden="true">01</span><div><small>NEWS CENTRE</small><h2>Megasteel News</h2></div></header>
       {articles.length ? <div className="news-card-grid">{articles.map((article, index) => { const t = getNewsTranslation(article); return <article className="news-card-shell" key={article.slug}><div className="news-card-thumb">{article.cover && <img src={article.cover} alt={t?.title ?? article.slug} />}</div><div className="news-card-body"><b>{String(index + 1).padStart(2, "0")}</b><small>{article.category} · {new Date(article.publishAt).toLocaleDateString("en-US")}</small><h3>{t?.title}</h3><p>{t?.excerpt}</p><a href={`/news/${article.slug}`}>Read More</a></div></article>})}</div> : <div className="news-empty-state"><h3>News &amp; Insights</h3><p>New company news, project updates and technical insights will appear here when published.</p></div>}

@@ -1,4 +1,5 @@
 ﻿import { GlobalHeader, MegaSteelWordmark } from "./global-header";
+import Image from "next/image";
 import { CurtainWallStrengthCarousel } from "./curtain-wall-strength-carousel";
 import { PembStrengthCarousel } from "./pemb-strength-carousel";
 import { ScrollAnimations } from "./scroll-animations";
@@ -672,7 +673,7 @@ export function BusinessDetailPage({ data }: { data: BusinessPage }) {
       <ScrollAnimations />
 
       <section className={`business-detail-hero ${data.heroParagraphs ? "detailed-hero" : ""}`}>
-        <img src={data.image} alt={`${data.title} industrial project`} />
+        <Image src={data.image} alt={`${data.title} industrial project`} fill priority sizes="100vw" />
         <div className="business-detail-hero-shade" />
         <div className="wide-container business-detail-hero-copy">
           <p className="eyebrow">{data.eyebrow}</p>
@@ -741,4 +742,3 @@ export function BusinessDetailPage({ data }: { data: BusinessPage }) {
     </main>
   );
 }
-

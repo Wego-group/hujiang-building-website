@@ -4,6 +4,7 @@ import "./globals.css";
 import { StructuredData } from "./components/structured-data";
 import { ContactRail } from "./components/contact-rail";
 import { ConversionTracker, SiteAnalytics } from "./components/site-analytics";
+import { LocaleNavigation } from "./components/locale-navigation";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "./seo";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <SiteAnalytics />
         <ConversionTracker />
+        <LocaleNavigation />
         <StructuredData data={[
           {
             "@context": "https://schema.org",

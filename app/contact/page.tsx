@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { EpcContactSection } from "../components/business-detail-page";
 import { GlobalHeader, MegaSteelWordmark } from "../components/global-header";
 import { ScrollAnimations } from "../components/scroll-animations";
@@ -36,7 +37,7 @@ export default function ContactPage() {
       <ScrollAnimations />
 
       <section className="contact-page-hero">
-        <img src="/images/contact-page-hero.png" alt="Megasteel contact support team" />
+        <Image src="/images/contact-page-hero.png" alt="Megasteel contact support team" fill priority sizes="100vw" />
         <div className="contact-page-hero-shade" />
         <div className="wide-container contact-page-hero-copy">
           <h1>Contact Us</h1>
