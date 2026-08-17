@@ -6,6 +6,7 @@ import { ContactRail } from "./components/contact-rail";
 import { ConversionTracker, SiteAnalytics } from "./components/site-analytics";
 import { LocaleNavigation } from "./components/locale-navigation";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "./seo";
+import { localeMeta, isLocale, type Locale } from "../lib/i18n";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -48,9 +49,14 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children, params }: Readonly<{ children: React.ReactNode; params: Promise<{ slug?: string[] }> }>) {
+  const p = await params;
+  const slugSegments = p.slug || [];
+  const locale = isLocale(slugSegments[0]) && slugSegments[0] !== "en" ? slugSegments[0] : "en";
+  const htmlLang = localeMeta[locale as Locale].htmlLang;
+  const dir = localeMeta[locale as Locale].dir ?? "ltr";
   return (
-    <html lang="en">
+    <html lang={htmlLang} dir={dir}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <SiteAnalytics />
         <ConversionTracker />
@@ -87,7 +93,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             url: SITE_URL,
             name: SITE_NAME,
             publisher: { "@id": `${SITE_URL}/#organization` },
-            inLanguage: "en",
+            inLanguage: locale as Locale,
           },
         ]} />
         {children}

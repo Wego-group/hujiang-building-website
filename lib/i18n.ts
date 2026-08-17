@@ -72,5 +72,9 @@ const seoCopy: Record<Locale, { title: string; description: string }> = {
 };
 
 export function localizedSeo(locale: Locale, fallbackTitle: string, fallbackDescription: string) {
-  return locale === "en" ? { title: fallbackTitle, description: fallbackDescription } : seoCopy[locale];
+  if (locale === "en") return { title: fallbackTitle, description: fallbackDescription };
+  if (fallbackTitle && fallbackTitle.length > 20) {
+    return { title: fallbackTitle, description: fallbackDescription || seoCopy[locale].description };
+  }
+  return seoCopy[locale];
 }

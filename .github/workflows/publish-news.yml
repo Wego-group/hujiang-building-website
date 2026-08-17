@@ -1,7 +1,9 @@
 name: Publish scheduled news
 on:
-  schedule:
-    - cron: "17 14 * * *"
+  # CRON disabled — news is published on-demand by Codex/operator, not daily
+  # To re-enable, uncomment the lines below:
+  # schedule:
+  #   - cron: "17 14 * * *"
   workflow_dispatch:
 permissions:
   contents: write

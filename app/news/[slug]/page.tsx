@@ -6,25 +6,50 @@ import { ScrollAnimations } from "../../components/scroll-animations";
 import { StructuredData } from "../../components/structured-data";
 import { FooterLegalLinks } from "../../components/footer-legal-links";
 import { breadcrumbSchema, metadataFor, SITE_URL } from "../../seo";
-import { getNewsTranslation, getPublishedNews, getPublishedNewsArticle } from "../../../lib/news";
+import { NEWS_LOCALES, getNewsTranslation, getPublishedNews, getPublishedNewsArticle, type NewsLocale } from "../../../lib/news";
+import { localeMeta, localePath, type Locale } from "../../../lib/i18n";
 
 export async function generateStaticParams() {
   const articles = await getPublishedNews();
   return articles.map(({ slug }) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params;
+export async function getNewsArticleMetadata(slug: string, locale: string = "en"): Promise<Metadata | null> {
   const article = await getPublishedNewsArticle(slug);
-  const translation = article && getNewsTranslation(article);
-  if (!article || !translation) return metadataFor("/news");
-  const canonical = `/news/${article.slug}`;
+  if (!article) return null;
+  const translation = getNewsTranslation(article, locale as NewsLocale);
+  if (!translation) return null;
+
+  const canonical = locale === "en" ? `/news/${article.slug}` : `/${locale}/news/${article.slug}`;
+  const languages = Object.fromEntries(NEWS_LOCALES.map((l) => [
+    localeMeta[l as Locale].htmlLang,
+    `${SITE_URL}${localePath(l as Locale, `/news/${article.slug}`)}`,
+  ]));
+
   return {
     title: translation.seoTitle,
     description: translation.seoDescription,
-    alternates: { canonical },
-    openGraph: { type: "article", url: `${SITE_URL}${canonical}`, title: translation.seoTitle, description: translation.seoDescription, images: article.cover ? [article.cover] : ["/images/news-hero.png"], publishedTime: article.publishAt, modifiedTime: article.updatedAt ?? article.publishAt, authors: [article.author] },
+    alternates: {
+      canonical: `${SITE_URL}${canonical}`,
+      languages: { ...languages, "x-default": `${SITE_URL}/news/${article.slug}` },
+    },
+    openGraph: {
+      type: "article",
+      locale: localeMeta[locale as Locale]?.ogLocale || "en_US",
+      url: `${SITE_URL}${canonical}`,
+      title: translation.seoTitle,
+      description: translation.seoDescription,
+      images: article.cover ? [article.cover] : ["/images/news-hero.png"],
+      publishedTime: article.publishAt,
+      modifiedTime: article.updatedAt ?? article.publishAt,
+      authors: [article.author],
+    },
   };
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  return (await getNewsArticleMetadata(slug, "en") ?? metadataFor("/news")) as Metadata;
 }
 
 export default async function NewsArticlePage({ params }: { params: Promise<{ slug: string }> }) {

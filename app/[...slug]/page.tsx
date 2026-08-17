@@ -11,7 +11,7 @@ import Home from "../page";
 import CompanyProfilePage from "../company-profile/page";
 import ContactPage from "../contact/page";
 import NewsPage from "../news/page";
-import NewsArticlePage from "../news/[slug]/page";
+import NewsArticlePage, { getNewsArticleMetadata } from "../news/[slug]/page";
 import PrivacyPolicyPage from "../privacy-policy.html/page";
 import SitemapHtmlPage from "../sitemap.html/page";
 import { isLocale, localeMeta, localePath, locales, localizedSeo } from "../../lib/i18n";
