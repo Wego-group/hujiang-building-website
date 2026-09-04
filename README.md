@@ -30,4 +30,4 @@ npm test
 - `app/globals.css`：视觉样式与响应式布局
 - `public/images/hero.png`：首屏和案例示例图
 
-咨询表单当前仅展示界面，不会发送数据。正式上线前需接入企业邮箱、CRM 或表单服务。
+咨询表单通过 `/api/leads` 使用 `WXPUSHER_SPT` 推送到指定 WxPusher 账号。网站访问量日报通过 Upstash Redis 临时记录，并由 Vercel Cron 每日推送；配置方法见 `docs/traffic-report-setup.md`。

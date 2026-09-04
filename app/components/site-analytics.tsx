@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Script from "next/script";
 
 declare global {
@@ -62,5 +63,26 @@ export function ConversionTracker() {
     };
   }, []);
 
+  return null;
+}
+
+/** Sends one small anonymous page-view event per route to the daily report store. */
+export function TrafficTracker() {
+  const pathname = usePathname();
+  useEffect(() => {
+    if (!pathname || pathname.startsWith("/admin/")) return;
+    const storageKey = "megasteel-visitor-id";
+    let visitorId = window.localStorage.getItem(storageKey);
+    if (!visitorId) {
+      visitorId = crypto.randomUUID();
+      window.localStorage.setItem(storageKey, visitorId);
+    }
+    void fetch("/api/pageview", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ path: pathname, visitor_id: visitorId, language: document.documentElement.lang, referrer: document.referrer }),
+      keepalive: true,
+    }).catch(() => undefined);
+  }, [pathname]);
   return null;
 }

@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { StructuredData } from "./components/structured-data";
 import { ContactRail } from "./components/contact-rail";
-import { ConversionTracker, SiteAnalytics } from "./components/site-analytics";
+import { ConversionTracker, SiteAnalytics, TrafficTracker } from "./components/site-analytics";
 import { LocaleNavigation } from "./components/locale-navigation";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "./seo";
 import { localeMeta, isLocale, type Locale } from "../lib/i18n";
@@ -60,6 +60,7 @@ export default async function RootLayout({ children, params }: Readonly<{ childr
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <SiteAnalytics />
         <ConversionTracker />
+        <TrafficTracker />
         <LocaleNavigation />
         <StructuredData data={[
           {
