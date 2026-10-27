@@ -8,6 +8,7 @@ import { StructuredData } from "../components/structured-data";
 import { breadcrumbSchema, metadataFor, SITE_URL } from "../seo";
 import { FooterLegalLinks } from "../components/footer-legal-links";
 import Home from "../page";
+import { AnchorBoltsPage } from "../components/anchor-bolts-page";
 import CompanyProfilePage from "../company-profile/page";
 import ContactPage from "../contact/page";
 import NewsPage from "../news/page";
@@ -86,7 +87,7 @@ function page(
 }
 
 export function generateStaticParams() {
-  const EnglishPaths = [...new Set([...Object.keys(pages), ...Object.keys(businessDetailPages), ...Object.keys(productSystemPages)])];
+  const EnglishPaths = [...new Set(["products/anchor-bolts", ...Object.keys(pages), ...Object.keys(businessDetailPages), ...Object.keys(productSystemPages)])];
   const fullSitePaths = ["", "company-profile", "contact", "news", "privacy-policy.html", "sitemap.html", ...EnglishPaths];
   return [
     ...EnglishPaths.map((key) => ({ slug: key.split("/") })),
@@ -133,6 +134,7 @@ export default async function LayeredPage({ params }: { params: Promise<{ slug: 
     if (key.startsWith("news/")) return <NewsArticlePage params={Promise.resolve({ slug: key.slice(5) })} />;
   }
 
+  if (key === "products/anchor-bolts") return <AnchorBoltsPage />;
   if (key === "products") notFound();
   if (key === "products/building-enclosure-system") redirect(localePath(locale, "/products/building-enclosure-system-in-architecture"));
   if (key === "about" || key === "about/video" || key === "about/catalog") redirect(localePath(locale, "/company-profile"));

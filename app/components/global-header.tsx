@@ -30,6 +30,7 @@ const navigation = [
     intro: "Engineered systems for resilient industrial architecture.",
     children: [
       ["Steel Structure System", "/products/steel-structure-system", "Frames, trusses and multi-storey systems"],
+      ["Anchor Bolts & Foundation Fasteners", "/products/anchor-bolts", "Custom foundation fastening solutions"],
       ["Building Enclosure System", "/products/building-enclosure-system-in-architecture", "Roof and wall envelope solutions"],
     ],
   },

@@ -47,6 +47,11 @@ export const routeSeo: Record<string, SeoEntry> = {
     description: "BIPV roof, facade and curtain wall solutions coordinated with steel structures, waterproofing, electrical systems and industrial construction.",
     image: "/images/bipv-hero-factory.png",
   },
+  "/products/anchor-bolts": {
+    title: "Anchor Bolts & Foundation Fasteners | Megasteel",
+    description: "Explore anchor bolts, foundation fastening assemblies, accessories and project-specific quotation options from Megasteel.",
+    image: "/images/anchor-bolts/hero.jpeg",
+  },
   "/products/steel-structure-system": {
     title: "Steel Structure Systems for Industrial Buildings | Megasteel",
     description: "Lightweight portal frames, large-span steel structures, heavy-crane systems and multi-storey steel frames engineered for industrial operations.",

@@ -1074,3 +1074,47 @@ html[dir="rtl"] .round-button i,html[dir="rtl"] .pill-button span{display:inline
 .localized-footer{padding:28px 0;background:#142005;color:#fff;font-size:.82rem}
 @media(max-width:900px){.localized-services{grid-template-columns:1fr}.localized-service-card{min-height:0}.localized-landing .localized-hero{min-height:590px}}
 @media(max-width:600px){.localized-landing .localized-hero{min-height:545px}.localized-service-card{padding:28px 24px}.localized-contact-cta{padding-bottom:42px}}
+
+/* Anchor bolt product page */
+.anchor-hero { min-height:560px; }
+.anchor-hero>img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.anchor-hero .layer-hero-content { position:relative; z-index:1; }
+.anchor-actions { display:flex; align-items:center; flex-wrap:wrap; gap:28px; margin-top:26px; }
+.anchor-hero-link { color:#fff; font-weight:700; }
+.anchor-products-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; margin-top:60px; }
+.anchor-product { background:#fff; box-shadow:0 12px 38px rgba(30,40,5,.08); border-radius:0 36px 0 0; overflow:hidden; }
+.anchor-product-image { height:260px; background:#f7f8f4; display:block; padding:22px; overflow:hidden; }
+.anchor-product-image img { display:block; width:100%; height:100%; max-width:100%; max-height:100%; object-fit:contain; }
+.anchor-product-copy { padding:28px; }
+.anchor-product h3,.anchor-quality-grid h3 { font-size:22px; line-height:1.35; }
+.anchor-product p,.anchor-quality-grid p { color:#666; line-height:1.65; margin-top:12px; }
+.anchor-product a { display:inline-block; margin-top:20px; color:#718900; font-weight:700; }
+.anchor-product a span { margin-left:8px; }
+.anchor-specs { background:#f6f7f3; }
+.anchor-table-wrap { width:min(1000px,100%); margin:55px auto 0; overflow-x:auto; }
+.anchor-table-wrap table { width:100%; border-collapse:collapse; background:#fff; text-align:left; }
+.anchor-table-wrap th,.anchor-table-wrap td { padding:19px 24px; border-bottom:1px solid #e5e9dc; line-height:1.5; }
+.anchor-table-wrap th { width:30%; color:#526500; }
+.anchor-note { max-width:1000px; margin:22px auto 0; color:#777; font-size:14px; line-height:1.6; }
+.anchor-quality-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; margin-top:55px; }
+.anchor-quality-grid article { background:#f7f8f4; }
+.anchor-quality-grid img { width:100%; height:185px; object-fit:cover; }
+.anchor-quality-grid article>div { padding:24px; }
+.anchor-quality-grid b { color:#8ca800; font-size:15px; }
+.anchor-quality-grid h3 { margin-top:10px; }
+.anchor-facility { background:#f3f5ec; padding:100px 0; }
+.anchor-facility-grid { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:70px; }
+.anchor-facility h2,.anchor-quote h2 { font-size:clamp(32px,3vw,44px); line-height:1.2; margin:18px 0 24px; }
+.anchor-facility p:not(.eyebrow),.anchor-quote-grid>div>p:not(.eyebrow) { color:#666; line-height:1.75; margin-top:16px; }
+.anchor-facility img { width:100%; height:420px; object-fit:cover; border-radius:0 90px 0 0; }
+.anchor-quote { padding:100px 0; }
+.anchor-quote-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:90px; }
+.anchor-quote form { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.anchor-quote label { display:flex; flex-direction:column; gap:8px; font-size:14px; font-weight:700; }
+.anchor-full { grid-column:1/-1; }
+.anchor-quote input,.anchor-quote select,.anchor-quote textarea { width:100%; border:1px solid #d8ddd0; border-radius:4px; padding:14px; font:inherit; font-weight:400; background:#fff; color:#333; }
+.anchor-quote textarea { resize:vertical; }
+.anchor-quote input:focus,.anchor-quote select:focus,.anchor-quote textarea:focus { outline:2px solid #9ab70a; outline-offset:1px; }
+.anchor-quote button { border:0; cursor:pointer; }
+@media (max-width:900px) { .anchor-products-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .anchor-quality-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .anchor-facility-grid,.anchor-quote-grid { grid-template-columns:1fr; gap:35px; } }
+@media (max-width:600px) { .anchor-hero { min-height:510px; } .anchor-products-grid,.anchor-quality-grid { grid-template-columns:1fr; } .anchor-product-image { height:240px; } .anchor-facility,.anchor-quote { padding:70px 0; } .anchor-facility img { height:280px; } .anchor-quote form { grid-template-columns:1fr; } .anchor-full { grid-column:auto; } .anchor-table-wrap th,.anchor-table-wrap td { padding:14px; } }
