@@ -105,6 +105,7 @@ export function GlobalHeader({ active = "home" }: { active?: ActiveSection }) {
                 <i aria-hidden="true">☎</i>
                 0086-19553105520 (WHATSAPP/WECHAT)
               </a>
+              <a href="tel:+8653488586758"><i aria-hidden="true">☎</i>0086-534-88586758</a>
               <a href="mailto:sales@chinamegasteel.com">
                 <i aria-hidden="true">✉</i>
                 sales@chinamegasteel.com

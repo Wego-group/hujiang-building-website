@@ -81,7 +81,7 @@ export default async function RootLayout({ children, params }: Readonly<{ childr
             },
             contactPoint: {
               "@type": "ContactPoint",
-              telephone: "+86-19553105520",
+              telephone: ["+86-19553105520", "+86-534-88586758"],
               email: "sales@chinamegasteel.com",
               contactType: "sales",
               availableLanguage: ["English", "Chinese", "Spanish", "French", "German", "Portuguese", "Russian", "Arabic", "Japanese", "Korean", "Italian", "Turkish"],

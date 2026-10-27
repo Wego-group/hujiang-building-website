@@ -1,17 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { withoutLocalePrefix } from "../../lib/i18n";
 
 const phone = "8619553105520";
 
 export function ContactRail() {
-  const anchorPage = withoutLocalePrefix(usePathname()) === "/products/anchor-bolts";
-  const whatsappPhone = anchorPage ? "8615168862952" : phone;
   return (
     <nav className="contact-rail notranslate" aria-label="Quick contact" translate="no">
-      <a href={`https://wa.me/${whatsappPhone}`} target="_blank" rel="noreferrer" aria-label="Contact Megasteel on WhatsApp" data-label="WhatsApp">
+      <a href={`https://wa.me/${phone}`} target="_blank" rel="noreferrer" aria-label="Contact Megasteel on WhatsApp" data-label="WhatsApp">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.6 6L0 24l6.4-1.7a11.8 11.8 0 0 0 5.7 1.5h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.5-8.5Zm-8.3 18.3h-.1c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.7 9.7 0 1 1 8.5 4.7Zm5.3-7.3c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.2l-1 1.2c-.2.2-.4.2-.7.1-1.7-.8-2.8-1.5-4-3.5-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.6l-.9-2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.4-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.9 5.2 2.2 1 3.1 1 4.2.9.7-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.4-.3-.7-.4Z" /></svg>
       </a>
       <Link href="/contact#wechat-qr" aria-label="WeChat contact: 19553105520" data-label="WeChat">

@@ -35,7 +35,7 @@ export function AnchorBoltsPage() {
   function quote(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const message = [`Hello, I would like to request a quotation for anchor bolts.`, `Product Type: ${product}`, `Diameter / Size: ${size}`, `Quantity: ${quantity}`, `Material / Grade: ${grade || "Not specified"}`, `Additional Requirements: ${details || "Not specified"}`].join("\n");
-    window.open(`https://wa.me/8615168862952?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    window.open(`https://wa.me/8619553105520?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
   }
   function selectProduct(name: string) { setProduct(name); }
   return <main className="anchor-page">

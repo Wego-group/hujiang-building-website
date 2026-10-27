@@ -217,7 +217,7 @@ export default function Home({ locale = "en" }: { locale?: Locale }) {
           </div>
           <div>
             <h3>Contact</h3>
-            <a href="tel:+8619553105520">0086-19553105520 (WHATSAPP/WECHAT)</a>
+            <a href="tel:+8619553105520">0086-19553105520 (WHATSAPP/WECHAT)</a><a href="tel:+8653488586758">0086-534-88586758 (LANDLINE)</a>
             <a href="mailto:sales@chinamegasteel.com">sales@chinamegasteel.com</a>
             <address>No.1068, Chongde 7th Avenue, Economic and Technological Development Zone, Dezhou City, Shandong Province</address>
           </div>
